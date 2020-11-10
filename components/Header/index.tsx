@@ -25,7 +25,7 @@ const Header: React.FC = () => {
           />
         </ChakraLink>
       </Link>
-      <HeaderText>
+      <HeaderText textAlign="right" display={['none', 'inline']}>
         Rua Aristides Saraiva de Almeida, 960, 407C Teresina-PI
       </HeaderText>
       <HamburguerMenu />

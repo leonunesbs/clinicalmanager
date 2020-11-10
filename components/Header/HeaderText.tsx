@@ -4,12 +4,24 @@ import { Text } from '@chakra-ui/core'
 
 // import { Container } from './styles';
 
-const HeaderText: React.FC = ({ children, ...rest }) => {
+interface CustomProps {
+  display?: any
+  textAlign?: any
+}
+
+const HeaderText: React.FC<CustomProps> = ({
+  children,
+  display,
+  textAlign,
+  ...rest
+}) => {
   return (
     <Text
       color="blue.100"
       w={['100px', '180px']}
       fontSize={[8, 'sm']}
+      display={display}
+      textAlign={textAlign}
       {...rest}
     >
       {children}
