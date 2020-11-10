@@ -8,10 +8,10 @@ const HamburguerMenu: React.FC = ({ ...rest }) => {
   return (
     <Flex w={['100px', '180px']} justify="flex-end" d={['flex', 'none']}>
       <Image
-        size={6}
-        src="/images/hamburguer-menu.png?webp"
-        {...rest}
+        size={4}
+        src={require('../../public/images/hamburgerMenu.png?webp')}
         cursor="pointer"
+        {...rest}
       />
     </Flex>
   )
