@@ -34,6 +34,9 @@ const customTheme: DefaultTheme = {
       ...theme.colors.orange,
       500: '#BF9D7E'
     }
+  },
+  sizes: {
+    ...theme.sizes
   }
 }
 
