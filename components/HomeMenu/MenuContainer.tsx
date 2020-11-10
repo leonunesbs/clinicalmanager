@@ -3,25 +3,15 @@ import React from 'react'
 import { Flex } from '@chakra-ui/core'
 import MenuItem from './MenuItem'
 
-const MenuContainer: React.FC = () => {
-  const menuItems = [
-    {
-      title: 'Agendamento',
-      href: '/agendamento'
-    },
-    {
-      title: 'Procedimentos',
-      href: '/procedimentos'
-    },
-    {
-      title: 'Profissionais',
-      href: '/profissionais'
-    },
-    {
-      title: 'Especialidades',
-      href: '/especialidades'
-    }
-  ]
+export interface MenuProps {
+  menuItems: {
+    title: string
+    href: string
+    slug?: string
+  }[]
+}
+
+const MenuContainer: React.FC<MenuProps> = ({ menuItems }) => {
   return (
     <Flex
       border="solid"
