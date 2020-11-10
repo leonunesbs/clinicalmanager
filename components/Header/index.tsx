@@ -17,7 +17,7 @@ const Header: React.FC = () => {
       <Link href="/" passHref>
         <ChakraLink>
           <Image
-            src={'/images/logo.svg'}
+            src={'/images/logo.svg?webp'}
             cursor="pointer"
             alt="logo"
             size={[60, 120]}

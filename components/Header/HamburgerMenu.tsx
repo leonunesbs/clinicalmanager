@@ -9,7 +9,7 @@ const HamburguerMenu: React.FC = ({ ...rest }) => {
     <Flex w={['100px', '180px']} justify="flex-end" d={['flex', 'none']}>
       <Image
         size={6}
-        src="/images/hamburguer-menu.svg"
+        src="/images/hamburguer-menu.svg?webp"
         {...rest}
         cursor="pointer"
       />
