@@ -13,7 +13,12 @@ class MyDocument extends Document<DocumentProps> {
   render(): JSX.Element {
     return (
       <Html>
-        <Head></Head>
+        <Head>
+          <meta
+            name="google-site-verification"
+            content="wisnFadn82Ndz9TMStMgCiRpbFSgVe4WmNl-kJHc1Uo"
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />
