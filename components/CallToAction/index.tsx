@@ -11,7 +11,7 @@ const CallToAction: React.FC = () => {
       flexDir="column"
       flexGrow={1}
       h="500px"
-      background="url(static/cta-bg.png)"
+      background="url(static/cta-bg.jpg)"
       justify="center"
       overflow="hidden"
     >
