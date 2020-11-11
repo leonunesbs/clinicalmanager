@@ -1,33 +1,35 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react'
-import { Button, Flex, Icon, Text } from '@chakra-ui/core'
-import { MdPerson } from 'react-icons/md'
+import { Button, Flex } from '@chakra-ui/core'
+import { MdHome, MdPerson } from 'react-icons/md'
+import { useRouter } from 'next/router'
+import { PainelContainerProps } from '../PainelContainer'
 
-const PainelSideMenu: React.FC = () => {
+const PainelSideMenu: React.FC<PainelContainerProps> = ({
+  painelContainerView
+}) => {
+  const router = useRouter()
   const sideMenuItems = [
     {
+      title: 'Início',
+      href: '/painel?d=inicio',
+      icon: MdHome,
+      slug: 'inicio'
+    },
+    {
       title: 'Pacientes',
-      href: '/pacientes',
-      icon: MdPerson
+      href: '/painel?d=pacientes',
+      icon: MdPerson,
+      slug: 'pacientes'
     },
     {
-      title: 'Painel',
-      href: '/painel',
-      icon: MdPerson
-    },
-    {
-      title: 'Procedimentos',
-      href: '/procedimentos'
-    },
-    {
-      title: 'Profissionais',
-      href: '/profissionais'
-    },
-    {
-      title: 'Especialidades',
-      href: '/especialidades'
+      title: 'Consultas',
+      href: '/painel?d=consultas',
+      icon: MdPerson,
+      slug: 'consultas'
     }
   ]
+
   return (
     <Flex
       width="30%"
@@ -47,7 +49,15 @@ const PainelSideMenu: React.FC = () => {
             borderRadius="sm"
             justifyContent="flex-start"
             backgroundColor="blue.100"
+            onClick={() => {
+              router.push(item.href)
+            }}
             _hover={{ backgroundColor: 'blue.200' }}
+            _active={{
+              backgroundColor: 'blue.500',
+              color: 'blue.100'
+            }}
+            isActive={painelContainerView === item.slug}
           >
             {item.title}
           </Button>
