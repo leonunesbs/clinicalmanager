@@ -6,12 +6,10 @@ export const api = create({
 })
 
 export function useFetch<Data = any, Error = any>(url: string) {
-  let loading = true
   const { data, error, mutate }: any = useSWR(url, async url => {
     const response = await api.get(url)
 
-    loading = false
     return response.data
   })
-  return { data, error, mutate, loading }
+  return { data, error, mutate }
 }
