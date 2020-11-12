@@ -18,6 +18,7 @@ const MenuContainer: React.FC<MenuProps> = ({ menuItems }) => {
       borderWidth="2px"
       borderColor="blue.400"
       align="center"
+      justify={['initial', 'center']}
       overflowY="hidden"
       overflowX={['scroll', 'hidden']}
     >
