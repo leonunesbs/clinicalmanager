@@ -12,7 +12,7 @@ const HeaderBG: React.FC<CustomProps> = ({ children, ...rest }) => {
       <Flex
         flexGrow={1}
         background="radial-gradient(114.98% 213.06% at 50% 100%, #021526 0%, #037F8B 100%);"
-        h={['120px', '160px']}
+        h={['80px', '100px']}
         align="center"
         justify="space-between"
         px={[8, 10]}
