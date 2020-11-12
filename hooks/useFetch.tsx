@@ -2,7 +2,10 @@ import useSWR from 'swr'
 import { create } from 'apisauce'
 
 export const api = create({
-  baseURL: 'http://127.0.0.1:8000/'
+  baseURL:
+    !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+      ? 'http://127.0.0.1:8000/'
+      : 'http://clinicalmanager.herokuapp.com/'
 })
 
 export function useFetch<Data = any, Error = any>(url: string) {
