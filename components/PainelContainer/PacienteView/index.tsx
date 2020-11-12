@@ -1,9 +1,10 @@
 // eslint-disable-next-line no-use-before-define
-import React from 'react'
-import { Flex, Heading } from '@chakra-ui/core'
-import { useFetch } from '../../../hooks/useFetch'
-import PacienteCard from './PacienteCard'
+import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
+import NovoPaciente from './NovoPaciente'
+import { useRouter } from 'next/router'
+import Custom404 from '../../../pages/404'
+import PacienteHome from './PacienteHome'
 
 export interface Paciente {
   id: number
@@ -16,36 +17,41 @@ export interface Paciente {
 }
 
 const PacienteView: React.FC = () => {
-  const pacientes = useFetch<Paciente[]>('paciente/')
-  if (!pacientes.data) {
-    return <p>Carregando...</p>
-  }
+  const router = useRouter()
+  const [componentToRender, setComponentToRender] = useState(null)
+  const [actions] = useState([
+    {
+      title: 'novoPaciente',
+      component: <NovoPaciente />
+    }
+  ])
+
+  const { action: actionQuery } = router.query
+
+  useEffect(() => {
+    for (let i = 0; i <= actions.length; i++) {
+      if (actions[i]?.title === actionQuery) {
+        setComponentToRender(actions[i]?.component)
+        break
+      }
+      if (i === actions.length) {
+        setComponentToRender(<Custom404 />)
+      }
+    }
+  }, [actionQuery])
+
+  useEffect(() => {
+    if (router.asPath === '/painel?d=pacientes') {
+      setComponentToRender(<PacienteHome />)
+    }
+  }, [])
+
   return (
     <>
       <Head>
         <title>Pacientes - Clinical Manager</title>
       </Head>
-      <Flex display="column">
-        <Flex justify="space-between" flexGrow={1}>
-          <Heading as="h4" size="lg" color="blue.100" mb={4}>
-            Pacientes
-          </Heading>
-          <Flex>Icones</Flex>
-        </Flex>
-        <Flex
-          borderColor="blue.400"
-          borderWidth={3}
-          borderRadius="md"
-          h="540px"
-          overflowY="scroll"
-          display="column"
-          p={4}
-        >
-          {pacientes.data.map((pct: Paciente) => (
-            <PacienteCard key={pct.id} paciente={pct} />
-          ))}
-        </Flex>
-      </Flex>
+      <>{componentToRender}</>
     </>
   )
 }

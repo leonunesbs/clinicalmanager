@@ -51,6 +51,7 @@ const PainelSideMenu: React.FC<PainelContainerProps> = ({
             backgroundColor="blue.100"
             onClick={() => {
               router.push(item.href)
+              router.asPath === item.href && router.reload()
             }}
             _hover={{ backgroundColor: 'blue.200' }}
             _active={{
