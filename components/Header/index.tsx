@@ -21,7 +21,7 @@ const Header: React.FC = () => {
               src={require('../../public/images/logo.png?webp')}
               cursor="pointer"
               alt="logo"
-              size={[60, 120]}
+              size={[60, 80]}
               mx={4}
             />
           </picture>
