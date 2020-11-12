@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-use-before-define
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Flex } from '@chakra-ui/core'
 import PainelContainer from '../../components/PainelContainer'
 import PainelHeader from '../../components/PainelHeader'
@@ -7,12 +7,16 @@ import PainelSideMenu from '../../components/PainelSideMenu'
 import { useRouter } from 'next/dist/client/router'
 
 const Painel: React.FC = () => {
-  const router = useRouter()
-  const { d } = router.query
+  const router = useRouter() // instanciando router
+  const { d } = router.query // armazena contexto
+  const [query, setQuery] = useState<string | string[]>('loading')
 
   useEffect(() => {
-    router.replace('/painel?d=inicio')
-  }, [])
+    setQuery(d)
+    if (router.asPath === '/painel') {
+      setQuery('inicio')
+    }
+  }, [d])
 
   return (
     <Flex
@@ -24,8 +28,8 @@ const Painel: React.FC = () => {
     >
       <PainelHeader />
       <Flex>
-        <PainelSideMenu painelContainerView={d} />
-        <PainelContainer painelContainerView={d} />
+        <PainelSideMenu painelContainerView={query} />
+        <PainelContainer painelContainerView={query} />
       </Flex>
     </Flex>
   )
