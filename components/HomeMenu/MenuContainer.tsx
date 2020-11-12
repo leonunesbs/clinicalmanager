@@ -1,6 +1,6 @@
 /* eslint-disable no-use-before-define */
 import React from 'react'
-import { Flex } from '@chakra-ui/core'
+import { Flex, Text } from '@chakra-ui/core'
 import MenuItem from './MenuItem'
 
 export interface MenuProps {
@@ -17,15 +17,15 @@ const MenuContainer: React.FC<MenuProps> = ({ menuItems }) => {
       border="solid"
       borderWidth="2px"
       borderColor="blue.400"
-      h="50px"
       align="center"
-      justify={['flex-start', 'center']}
       overflowY="hidden"
       overflowX={['scroll', 'hidden']}
     >
       {menuItems.map(item => (
         <MenuItem key={item.title} href={item.href}>
-          {item.title}
+          <Text fontSize="sm" textAlign="center">
+            {item.title}
+          </Text>
         </MenuItem>
       ))}
     </Flex>
