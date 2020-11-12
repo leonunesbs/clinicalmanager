@@ -8,7 +8,9 @@ export const api = create({
       : 'http://clinicalmanager.herokuapp.com/'
 })
 
-export function useFetch<Data = any, Error = any>(url: string) {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export function useFetch(url: string) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { data, error, mutate }: any = useSWR(url, async url => {
     const response = await api.get(url)
 
