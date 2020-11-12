@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { Flex } from '@chakra-ui/core'
 import PacienteView from './PacienteView'
 import ConsultasView from './ConsultasView'
-import Custom404 from '../../pages/404'
 import InícioView from './InícioView'
+import Custom404 from '../../pages/404'
 
 export interface PainelContainerProps {
   painelContainerView: string | string[]
@@ -25,19 +25,24 @@ const PainelContainer: React.FC<PainelContainerProps> = ({
     {
       title: 'consultas',
       component: <ConsultasView key={1} />
+    },
+    {
+      title: 'loading',
+      component: <Flex>Carregando...</Flex>
     }
   ])
 
   const [componentToRender, setComponentToRender] = useState(null)
 
   useEffect(() => {
-    for (let i = 0; i < containerViews.length; i++) {
-      console.log(containerViews[i])
-      if (containerViews[i].title === painelContainerView) {
-        setComponentToRender(containerViews[i].component)
+    for (let i = 0; i <= containerViews.length; i++) {
+      if (containerViews[i]?.title === painelContainerView) {
+        setComponentToRender(containerViews[i]?.component)
         break
       }
-      setComponentToRender(<Custom404 />)
+      if (i === containerViews.length) {
+        setComponentToRender(<Custom404 />)
+      }
     }
   }, [painelContainerView])
 
