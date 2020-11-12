@@ -16,15 +16,13 @@ const Header: React.FC = () => {
       </HeaderText>
       <Link href="/" passHref>
         <ChakraLink>
-          <picture>
-            <Image
-              src={require('../../public/images/logo.png?webp')}
-              cursor="pointer"
-              alt="logo"
-              size={[60, 80]}
-              mx={4}
-            />
-          </picture>
+          <Image
+            src={require('../../public/images/logo.png?webp')}
+            cursor="pointer"
+            alt="logo"
+            size={[60, 80]}
+            mx={4}
+          />
         </ChakraLink>
       </Link>
       <HeaderText textAlign="right" display={['none', 'inline']}>
