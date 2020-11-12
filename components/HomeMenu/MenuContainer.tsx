@@ -19,9 +19,9 @@ const MenuContainer: React.FC<MenuProps> = ({ menuItems }) => {
       borderColor="blue.400"
       h="50px"
       align="center"
-      justify="center"
-      d={['none', 'flex']}
-      overflow="hidden"
+      justify={['flex-start', 'center']}
+      overflowY="hidden"
+      overflowX={['scroll', 'hidden']}
     >
       {menuItems.map(item => (
         <MenuItem key={item.title} href={item.href}>
