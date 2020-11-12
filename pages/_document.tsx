@@ -55,42 +55,6 @@ class MyDocument extends Document<DocumentProps> {
             as="font"
             crossOrigin=""
           />
-          <link
-            rel="preload"
-            href="/fonts/JetBrainsMono-Bold.woff"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/JetBrainsMono-Light.woff"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/JetBrainsMono-Regular.woff"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/JetBrainsMono-Bold.eot"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/JetBrainsMono-Light.eot"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/JetBrainsMono-Regular.eot"
-            as="font"
-            crossOrigin=""
-          />
         </Head>
         <body>
           <Main />
