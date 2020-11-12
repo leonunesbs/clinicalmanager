@@ -8,6 +8,7 @@ import Document, {
   NextScript,
   DocumentProps
 } from 'next/document'
+import GlobalStyle from '../styles/GlobalStyle'
 
 class MyDocument extends Document<DocumentProps> {
   render(): JSX.Element {
@@ -36,29 +37,11 @@ class MyDocument extends Document<DocumentProps> {
             href={`${require('../public/icons/favicon-16x16.png?webp')}`}
           />
           <link rel="manifest" href="/icons/site.webmanifest" />
-
-          <link
-            rel="preload"
-            href="/fonts/JetBrainsMono-Bold.woff2"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/JetBrainsMono-Light.woff2"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/JetBrainsMono-Regular.woff2"
-            as="font"
-            crossOrigin=""
-          />
         </Head>
         <body>
           <Main />
           <NextScript />
+          <GlobalStyle />
         </body>
       </Html>
     )
