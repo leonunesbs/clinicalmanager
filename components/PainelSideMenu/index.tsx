@@ -11,10 +11,10 @@ const PainelSideMenu: React.FC<PainelContainerProps> = ({
   const router = useRouter()
   const sideMenuItems = [
     {
-      title: 'Início',
-      href: '/painel?d=inicio',
+      title: 'Home',
+      href: '/painel?d=home',
       icon: MdHome,
-      slug: 'inicio'
+      slug: 'home'
     },
     {
       title: 'Pacientes',

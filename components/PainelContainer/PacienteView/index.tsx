@@ -23,7 +23,7 @@ const PacienteView: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Pacientes</title>
+        <title>Pacientes - Clinical Manager</title>
       </Head>
       <Flex display="column">
         <Flex justify="space-between" flexGrow={1}>

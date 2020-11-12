@@ -14,7 +14,7 @@ const Painel: React.FC = () => {
   useEffect(() => {
     setQuery(d)
     if (router.asPath === '/painel') {
-      setQuery('inicio')
+      setQuery('home')
     }
   }, [d])
 

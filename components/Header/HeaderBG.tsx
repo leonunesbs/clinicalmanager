@@ -1,8 +1,12 @@
 /* eslint-disable no-use-before-define */
-import { Flex, FlexProps } from '@chakra-ui/core'
 import React from 'react'
+import { Flex, FlexProps } from '@chakra-ui/core'
 
-const HeaderBG: React.FC<FlexProps> = ({ children, ...rest }) => {
+interface CustomProps extends FlexProps {
+  href?: string
+}
+
+const HeaderBG: React.FC<CustomProps> = ({ children, ...rest }) => {
   return (
     <>
       <Flex

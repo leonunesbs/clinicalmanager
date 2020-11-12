@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Flex } from '@chakra-ui/core'
 import PacienteView from './PacienteView'
 import ConsultasView from './ConsultasView'
-import InícioView from './InícioView'
+import HomeView from './HomeView'
 import Custom404 from '../../pages/404'
 
 export interface PainelContainerProps {
@@ -15,8 +15,8 @@ const PainelContainer: React.FC<PainelContainerProps> = ({
 }) => {
   const [containerViews] = useState([
     {
-      title: 'inicio',
-      component: <InícioView key={1} />
+      title: 'home',
+      component: <HomeView key={1} />
     },
     {
       title: 'pacientes',

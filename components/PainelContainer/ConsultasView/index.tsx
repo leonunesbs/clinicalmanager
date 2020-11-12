@@ -6,7 +6,7 @@ const ConsultasView: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Consultas</title>
+        <title>Consultas - Clinical Manager</title>
       </Head>
       Consultas
     </>
