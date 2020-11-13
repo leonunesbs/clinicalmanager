@@ -1,9 +1,9 @@
 // eslint-disable-next-line no-use-before-define
 import React, { useEffect, useState } from 'react'
 import { Flex } from '@chakra-ui/core'
-import PainelContainer from '../../components/PainelContainer'
-import PainelHeader from '../../components/PainelHeader'
-import PainelSideMenu from '../../components/PainelSideMenu'
+import PainelContainer from '../components/PainelContainer'
+import PainelHeader from '../components/PainelHeader'
+import PainelMenu from '../components/PainelMenu'
 import { useRouter } from 'next/dist/client/router'
 
 const Painel: React.FC = () => {
@@ -27,8 +27,8 @@ const Painel: React.FC = () => {
       backgroundColor="blue.700"
     >
       <PainelHeader />
-      <Flex>
-        <PainelSideMenu painelContainerView={query} />
+      <Flex flexDirection={['column', 'row']}>
+        <PainelMenu painelContainerView={query} />
         <PainelContainer painelContainerView={query} />
       </Flex>
     </Flex>

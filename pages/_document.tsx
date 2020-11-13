@@ -41,6 +41,7 @@ class MyDocument extends Document<DocumentProps> {
             name="google-site-verification"
             content="wisnFadn82Ndz9TMStMgCiRpbFSgVe4WmNl-kJHc1Uo"
           />
+
           <link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -58,7 +59,25 @@ class MyDocument extends Document<DocumentProps> {
             sizes="16x16"
             href={`${require('../public/icons/favicon-16x16.png?webp')}`}
           />
-          <link rel="manifest" href="/icons/site.webmanifest" />
+          <link
+            rel="manifest"
+            href={`${require('../public/icons/site.webmanifest')}`}
+          />
+          <link
+            rel="mask-icon"
+            color="#011526"
+            href={`${require('../public/icons/safari-pinned-tab.svg')}`}
+          />
+          <link
+            rel="shortcut icon"
+            href={`${require('../public/icons/favicon.ico')}`}
+          />
+          <meta name="msapplication-TileColor" content="#011526" />
+          <meta
+            name="msapplication-config"
+            content={`${require('../public/icons/browserconfig.xml')}`}
+          />
+          <meta name="theme-color" content="#011526" />
         </Head>
         <body>
           <Main />

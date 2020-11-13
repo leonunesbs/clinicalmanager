@@ -18,7 +18,7 @@ import MenuItem from './MenuItem'
 
 // import { Container } from './styles';
 
-const HamburguerMenu: React.FC<MenuItemsProps> = ({ menuItems, ...rest }) => {
+const HamburguerMenu: React.FC<MenuItemsProps> = ({ menuItems }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = useRef<HTMLDivElement>(null)
 
@@ -29,7 +29,6 @@ const HamburguerMenu: React.FC<MenuItemsProps> = ({ menuItems, ...rest }) => {
           size={4}
           src={require('../../public/images/hamburgerMenu.png?webp')}
           cursor="pointer"
-          {...rest}
         />
       </Flex>
       <Drawer
