@@ -41,41 +41,34 @@ class MyDocument extends Document<DocumentProps> {
             name="google-site-verification"
             content="wisnFadn82Ndz9TMStMgCiRpbFSgVe4WmNl-kJHc1Uo"
           />
-
           <link
             rel="apple-touch-icon"
             sizes="180x180"
-            href={`${require('../public/icons/apple-touch-icon.png?webp')}`}
+            href="/icons/apple-touch-icon.png"
           />
           <link
             rel="icon"
             type="image/png"
             sizes="32x32"
-            href={`${require('../public/icons/favicon-32x32.png?webp')}`}
+            href="/icons/favicon-32x32.png"
           />
           <link
             rel="icon"
             type="image/png"
             sizes="16x16"
-            href={`${require('../public/icons/favicon-16x16.png?webp')}`}
+            href="/icons/favicon-16x16.png"
           />
-          <link
-            rel="manifest"
-            href={`${require('../public/icons/site.webmanifest')}`}
-          />
+          <link rel="manifest" href="/icons/site.webmanifest" />
           <link
             rel="mask-icon"
+            href="/icons/safari-pinned-tab.svg"
             color="#011526"
-            href={`${require('../public/icons/safari-pinned-tab.svg')}`}
           />
-          <link
-            rel="shortcut icon"
-            href={`${require('../public/icons/favicon.ico')}`}
-          />
+          <link rel="shortcut icon" href="/icons/favicon.ico" />
           <meta name="msapplication-TileColor" content="#011526" />
           <meta
             name="msapplication-config"
-            content={`${require('../public/icons/browserconfig.xml')}`}
+            content="/icons/browserconfig.xml"
           />
           <meta name="theme-color" content="#011526" />
         </Head>
