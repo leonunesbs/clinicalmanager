@@ -11,7 +11,7 @@ import { useRouter } from 'next/router'
 
 const PacienteHome: React.FC = () => {
   const router = useRouter()
-  const pacientes = useFetch<Paciente[]>('paciente/')
+  const pacientes = useFetch<Paciente[]>('pacientes/')
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {

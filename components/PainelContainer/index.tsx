@@ -1,10 +1,11 @@
 // eslint-disable-next-line no-use-before-define
 import React, { useEffect, useState } from 'react'
 import { Flex } from '@chakra-ui/core'
-import PacienteView from './PacienteView'
+import PacientesView from './PacientesView'
 import ConsultasView from './ConsultasView'
 import HomeView from './HomeView'
 import Custom404 from '../../pages/Custom404'
+import PacienteDetailView from './PacientesView/PacienteDetailView'
 
 export interface PainelContainerProps {
   painelContainerView: string | string[]
@@ -20,7 +21,11 @@ const PainelContainer: React.FC<PainelContainerProps> = ({
     },
     {
       title: 'pacientes',
-      component: <PacienteView key={1} />
+      component: <PacientesView key={1} />
+    },
+    {
+      title: 'paciente',
+      component: <PacienteDetailView key={1} />
     },
     {
       title: 'consultas',

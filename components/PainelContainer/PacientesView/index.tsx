@@ -16,7 +16,7 @@ export interface Paciente {
   rg: string
 }
 
-const PacienteView: React.FC = () => {
+const PacientesView: React.FC = () => {
   const router = useRouter()
   const [componentToRender, setComponentToRender] = useState(null)
   const [actions] = useState([
@@ -56,4 +56,4 @@ const PacienteView: React.FC = () => {
   )
 }
 
-export default PacienteView
+export default PacientesView
