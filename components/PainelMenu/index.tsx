@@ -33,9 +33,16 @@ const PainelMenu: React.FC<PainelContainerProps> = ({
 
   return (
     <>
-      <Flex p={4} pl="5%">
-        <HamburguerMenu menuItems={menuItems} />
+      <Flex p={3} pl="5%" d={['flex', 'none']}>
+        <HamburguerMenu menuItems={menuItems} rightText="Menu" />
       </Flex>
+      <Flex
+        flexGrow={1}
+        h="2px"
+        backgroundColor="blue.400"
+        d={['inital', 'none']}
+      />
+
       <Flex
         width="30%"
         minWidth="150px"

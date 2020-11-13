@@ -17,19 +17,36 @@ import { MenuItemsProps } from '.'
 import MenuItem from './MenuItem'
 
 // import { Container } from './styles';
+interface HamburgerMenuProps extends MenuItemsProps {
+  rightText?: string
+}
 
-const HamburguerMenu: React.FC<MenuItemsProps> = ({ menuItems }) => {
+const HamburguerMenu: React.FC<HamburgerMenuProps> = ({
+  menuItems,
+  rightText
+}) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = useRef<HTMLDivElement>(null)
 
   return (
     <>
-      <Flex d={['flex', 'none']} ref={btnRef} onClick={onOpen}>
+      <Flex
+        d={['flex', 'none']}
+        ref={btnRef}
+        onClick={onOpen}
+        justify="center"
+        align="center"
+        cursor="pointer"
+      >
         <Image
           size={4}
           src={require('../../public/images/hamburgerMenu.png?webp')}
-          cursor="pointer"
         />
+        {rightText && (
+          <Text color="blue.100" ml={2}>
+            {rightText}
+          </Text>
+        )}
       </Flex>
       <Drawer
         isOpen={isOpen}

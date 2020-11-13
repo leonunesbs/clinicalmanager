@@ -19,7 +19,8 @@ const CallToAction: React.FC = () => {
       <Flex
         flexDir="column"
         w={['100%', '40%']}
-        px={['8%', '5%', '130px']}
+        pl={['8%', '5%', '130px']}
+        pr="8%"
         align="center"
       >
         <Heading
