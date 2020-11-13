@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import NovoPaciente from './NovoPaciente'
 import { useRouter } from 'next/router'
-import Custom404 from '../../../pages/404'
+import Custom404 from '../../../pages/Custom404'
 import PacienteHome from './PacienteHome'
 
 export interface Paciente {

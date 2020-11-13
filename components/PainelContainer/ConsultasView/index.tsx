@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import NovaConsulta from './NovaConsulta'
 import { useRouter } from 'next/router'
-import Custom404 from '../../../pages/404'
+import Custom404 from '../../../pages/Custom404'
 import ConsultasHome from './ConsultasHome'
 
 const ConsultasView: React.FC = () => {

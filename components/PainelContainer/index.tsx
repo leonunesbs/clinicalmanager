@@ -4,7 +4,7 @@ import { Flex } from '@chakra-ui/core'
 import PacienteView from './PacienteView'
 import ConsultasView from './ConsultasView'
 import HomeView from './HomeView'
-import Custom404 from '../../pages/404'
+import Custom404 from '../../pages/Custom404'
 
 export interface PainelContainerProps {
   painelContainerView: string | string[]
