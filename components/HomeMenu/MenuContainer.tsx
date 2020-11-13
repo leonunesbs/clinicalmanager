@@ -20,7 +20,7 @@ const MenuContainer: React.FC<MenuProps> = ({ menuItems }) => {
       align="center"
       justify={['initial', 'center']}
       overflowY="hidden"
-      overflowX={['scroll', 'hidden']}
+      overflowX={['scroll', 'scroll', 'scroll', 'hidden']}
     >
       {menuItems.map(item => (
         <MenuItem key={item.title} href={item.href}>

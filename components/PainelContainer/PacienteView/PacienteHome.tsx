@@ -1,5 +1,8 @@
+/* eslint-disable indent */
+/* eslint-disable prettier/prettier */
+/* eslint-disable multiline-ternary */
 // eslint-disable-next-line no-use-before-define
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Flex, Heading } from '@chakra-ui/core'
 import { Paciente } from '.'
 import { useFetch } from '../../../hooks/useFetch'
@@ -9,9 +12,14 @@ import { useRouter } from 'next/router'
 const PacienteHome: React.FC = () => {
   const router = useRouter()
   const pacientes = useFetch<Paciente[]>('paciente/')
-  if (!pacientes.data) {
-    return <p>Carregando...</p>
-  }
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    if (!pacientes.data) {
+      setLoading(true)
+    }
+  }, [pacientes.data])
+
   return (
     <Flex display="column">
       <Flex justify="space-between" flexGrow={1}>
@@ -33,9 +41,13 @@ const PacienteHome: React.FC = () => {
         display="column"
         p={4}
       >
-        {pacientes.data.map((pct: Paciente) => (
-          <PacienteCard key={pct.id} paciente={pct} />
-        ))}
+        {pacientes.data ? (
+          pacientes.data.map((pct: Paciente) => (
+            <PacienteCard key={pct.id} paciente={pct} />
+          ))
+        ) : (
+            <PacienteCard isLoading={loading} />
+          )}
       </Flex>
     </Flex>
   )
