@@ -1,17 +1,12 @@
 /* eslint-disable no-use-before-define */
-import React from 'react'
 import { Flex, Text } from '@chakra-ui/core'
+import React from 'react'
+import { MenuItemsProps } from '..'
 import MenuItem from './MenuItem'
 
-export interface MenuProps {
-  menuItems: {
-    title: string
-    href: string
-    slug?: string
-  }[]
-}
+// import { Container } from './styles';
 
-const MenuContainer: React.FC<MenuProps> = ({ menuItems }) => {
+const HomeMenu: React.FC<MenuItemsProps> = ({ menuItems }) => {
   return (
     <Flex
       border="solid"
@@ -22,7 +17,7 @@ const MenuContainer: React.FC<MenuProps> = ({ menuItems }) => {
       overflowY="hidden"
       overflowX={['scroll', 'scroll', 'scroll', 'hidden']}
     >
-      {menuItems.map(item => (
+      {menuItems?.map(item => (
         <MenuItem key={item.title} href={item.href}>
           <Text fontSize="sm" textAlign="center">
             {item.title}
@@ -33,4 +28,4 @@ const MenuContainer: React.FC<MenuProps> = ({ menuItems }) => {
   )
 }
 
-export default MenuContainer
+export default HomeMenu

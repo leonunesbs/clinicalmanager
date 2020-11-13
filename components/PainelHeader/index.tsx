@@ -11,7 +11,7 @@ const PainelHeader: React.FC = () => {
       <Image
         cursor="pointer"
         size={12}
-        src={require('../../public/images/logo.png?webp')}
+        src={require('../../public/images/logo.svg')}
         mr={6}
         onClick={() => router.push('/')}
       />

@@ -12,13 +12,14 @@ const CallToAction: React.FC = () => {
       flexGrow={1}
       h="500px"
       backgroundImage={`url("${require('../../public/images/ctaBackground.jpg?webp')}")`}
+      backgroundSize="cover"
       justify="center"
       overflow="hidden"
     >
       <Flex
         flexDir="column"
         w={['100%', '40%']}
-        p={['0px 5% 0px 5%', '0px 0px 0px 130px']}
+        px={['8%', '5%', '130px']}
         align="center"
       >
         <Heading

@@ -15,7 +15,7 @@ const HeaderBG: React.FC<CustomProps> = ({ children, ...rest }) => {
         h={['80px', '100px']}
         align="center"
         justify="space-between"
-        px={[8, 10]}
+        px={['8%', '5%', '130px']}
         {...rest}
       >
         {children}

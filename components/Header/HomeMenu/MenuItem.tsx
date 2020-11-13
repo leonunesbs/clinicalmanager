@@ -4,14 +4,17 @@ import Link, { LinkProps } from 'next/link'
 import { Link as ChakraLink } from '@chakra-ui/core'
 
 // import { Container } from './styles';
+interface CustomProps extends LinkProps {
+  w?: string
+}
 
-const MenuItem: React.FC<LinkProps> = ({ children, href }) => {
+const MenuItem: React.FC<CustomProps> = ({ children, href, w }) => {
   return (
     <Link href={href}>
       <ChakraLink
         mx={4}
         my={2}
-        w="140px"
+        w={w || '140px'}
         color="blue.500"
         style={{ textDecoration: 'none' }}
         p={2}
