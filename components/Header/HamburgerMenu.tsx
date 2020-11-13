@@ -14,7 +14,7 @@ import {
   useDisclosure
 } from '@chakra-ui/core'
 import { MenuItemsProps } from '.'
-import MenuItem from './HomeMenu/MenuItem'
+import MenuItem from './MenuItem'
 
 // import { Container } from './styles';
 

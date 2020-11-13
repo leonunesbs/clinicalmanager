@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
 import { Flex, Text } from '@chakra-ui/core'
 import React from 'react'
-import { MenuItemsProps } from '..'
+import { MenuItemsProps } from '.'
 import MenuItem from './MenuItem'
 
 // import { Container } from './styles';
