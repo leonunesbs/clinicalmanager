@@ -3,9 +3,10 @@ export const GA_TRACKING_ID = 'G-C8BTYXHYMF' // This is your GA Tracking ID
 /// https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const pageview = (url: URL) => {
-  window.gtag('config', GA_TRACKING_ID, {
-    page_path: url
-  })
+  process.env.NODE_ENV === 'production' &&
+    window.gtag('config', GA_TRACKING_ID, {
+      page_path: url
+    })
 }
 
 type GTagEvent = {
@@ -18,9 +19,10 @@ type GTagEvent = {
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const event = ({ action, category, label, value }: GTagEvent) => {
-  window.gtag('event', action, {
-    event_category: category,
-    event_label: label,
-    value: value
-  })
+  process.env.NODE_ENV === 'production' &&
+    window.gtag('event', action, {
+      event_category: category,
+      event_label: label,
+      value: value
+    })
 }
