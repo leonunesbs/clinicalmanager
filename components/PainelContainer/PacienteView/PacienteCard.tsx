@@ -20,7 +20,7 @@ const PacienteCard: React.FC<PacienteProps> = ({ paciente, isLoading }) => {
       fontSize={['xs', 'sm']}
       w="100%"
     >
-      <Skeleton isLoaded={!isLoading} h="15px" w="60%">
+      <Skeleton isLoaded={!isLoading} minH="15px">
         <Text fontWeight="bold">{paciente?.nome.toUpperCase()}</Text>
       </Skeleton>
       <Skeleton isLoaded={!isLoading} mt={2}>
