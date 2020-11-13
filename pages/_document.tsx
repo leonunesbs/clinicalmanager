@@ -9,12 +9,34 @@ import Document, {
   DocumentProps
 } from 'next/document'
 import GlobalStyle from '../styles/GlobalStyle'
+import { GA_TRACKING_ID } from '../services/gtag'
 
 class MyDocument extends Document<DocumentProps> {
   render(): JSX.Element {
     return (
       <Html>
         <Head>
+          {/* Global Site Tag (gtag.js) - Google Analytics */}
+          {process.env.NODE_ENV === 'production' && (
+            <>
+              <script
+                async
+                src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+              />
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: `
+            window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_TRACKING_ID}', {
+                page_path: window.location.pathname,
+              });
+              `
+                }}
+              />
+            </>
+          )}
           <meta
             name="google-site-verification"
             content="wisnFadn82Ndz9TMStMgCiRpbFSgVe4WmNl-kJHc1Uo"
