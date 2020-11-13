@@ -11,7 +11,7 @@ const PacienteDetailView: React.FC = () => {
   if (!id) {
     router.push('/painel?d=pacientes')
   }
-  const { data } = useFetch<Paciente>(id ? `paciente/${id}` : '')
+  const { data } = useFetch<Paciente>(id ? `paciente/${id}/` : '')
 
   return (
     <Flex flexDir="column">
