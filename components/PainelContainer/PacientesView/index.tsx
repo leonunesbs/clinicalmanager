@@ -4,7 +4,7 @@ import Head from 'next/head'
 import NovoPaciente from './NovoPaciente'
 import { useRouter } from 'next/router'
 import Custom404 from '../../../pages/Custom404'
-import PacienteHome from './PacienteHome'
+import PacientesList from './PacientesList'
 
 export interface Paciente {
   id: number
@@ -42,9 +42,9 @@ const PacientesView: React.FC = () => {
 
   useEffect(() => {
     if (router.asPath === '/painel?d=pacientes') {
-      setComponentToRender(<PacienteHome />)
+      setComponentToRender(<PacientesList />)
     }
-  }, [])
+  }, [router.asPath])
 
   return (
     <>

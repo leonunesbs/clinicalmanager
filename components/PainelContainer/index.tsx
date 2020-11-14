@@ -7,13 +7,14 @@ import HomeView from './HomeView'
 import Custom404 from '../../pages/Custom404'
 import PacienteDetailView from './PacientesView/PacienteDetailView'
 
-export interface PainelContainerProps {
+interface PainelContainerProps {
   painelContainerView: string | string[]
 }
 
 const PainelContainer: React.FC<PainelContainerProps> = ({
   painelContainerView
 }) => {
+  const [componentToRender, setComponentToRender] = useState(null)
   const [containerViews] = useState([
     {
       title: 'home',
@@ -36,8 +37,6 @@ const PainelContainer: React.FC<PainelContainerProps> = ({
       component: <Flex>Carregando...</Flex>
     }
   ])
-
-  const [componentToRender, setComponentToRender] = useState(null)
 
   useEffect(() => {
     for (let i = 0; i <= containerViews.length; i++) {

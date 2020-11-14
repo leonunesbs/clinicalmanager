@@ -1,35 +1,48 @@
 // eslint-disable-next-line no-use-before-define
-import React from 'react'
+import React, { useCallback } from 'react'
 import { Button, Flex } from '@chakra-ui/core'
 import { MdHome, MdPerson } from 'react-icons/md'
 import { useRouter } from 'next/router'
-import { PainelContainerProps } from '../PainelContainer'
 import HamburgerMenu from '../Header/HamburgerMenu'
 
-const PainelMenu: React.FC<PainelContainerProps> = ({
-  painelContainerView
-}) => {
+interface PainelMenuProps {
+  painelMenuView: string | string[]
+}
+
+const PainelMenu: React.FC<PainelMenuProps> = ({ painelMenuView }) => {
   const router = useRouter()
   const menuItems = [
     {
       title: 'Home',
       href: '/painel?d=home',
       icon: MdHome,
-      slug: 'home'
+      slug: ['home']
     },
     {
       title: 'Pacientes',
       href: '/painel?d=pacientes',
       icon: MdPerson,
-      slug: 'pacientes'
+      slug: ['paciente', 'pacientes']
     },
     {
       title: 'Consultas',
       href: '/painel?d=consultas',
       icon: MdPerson,
-      slug: 'consultas'
+      slug: ['consultas']
     }
   ]
+
+  const checkIsActive = useCallback(
+    (slug: string | string[]) => {
+      for (let i = 0; i < slug.length; i++) {
+        if (slug[i] === painelMenuView) {
+          return true
+        }
+      }
+      return false
+    },
+    [painelMenuView]
+  )
 
   return (
     <>
@@ -70,7 +83,7 @@ const PainelMenu: React.FC<PainelContainerProps> = ({
                 backgroundColor: 'blue.500',
                 color: 'blue.100'
               }}
-              isActive={painelContainerView === item.slug}
+              isActive={checkIsActive(item.slug)}
             >
               {item.title}
             </Button>

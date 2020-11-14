@@ -8,15 +8,15 @@ import { useRouter } from 'next/dist/client/router'
 
 const Painel: React.FC = () => {
   const router = useRouter() // instanciando router
-  const { d } = router.query // armazena contexto
-  const [query, setQuery] = useState<string | string[]>('loading')
+  const { d: displayView } = router.query // armazena contexto
+  const [viewToRender, setViewToRender] = useState<string | string[]>('loading')
 
   useEffect(() => {
-    setQuery(d)
+    setViewToRender(displayView)
     if (router.asPath === '/painel') {
-      setQuery('home')
+      setViewToRender('home')
     }
-  }, [d])
+  }, [displayView, router.query])
 
   return (
     <Flex
@@ -28,8 +28,8 @@ const Painel: React.FC = () => {
     >
       <PainelHeader />
       <Flex flexDirection={['column', 'row']} h="90%" overflow="hidden">
-        <PainelMenu painelContainerView={query} />
-        <PainelContainer painelContainerView={query} />
+        <PainelMenu painelMenuView={viewToRender} />
+        <PainelContainer painelContainerView={viewToRender} />
       </Flex>
     </Flex>
   )

@@ -8,8 +8,10 @@ import { Paciente } from '.'
 import { useFetch } from '../../../hooks/useFetch'
 import PacienteCard from './PacienteCard'
 import { useRouter } from 'next/router'
+import { FaUserPlus } from 'react-icons/Fa'
+import ButtonWithIcon from '../../ButtonWithIcon'
 
-const PacienteHome: React.FC = () => {
+const PacientesList: React.FC = () => {
   const router = useRouter()
   const pacientes = useFetch<Paciente[]>('pacientes/')
   const [loading, setLoading] = useState(true)
@@ -22,15 +24,11 @@ const PacienteHome: React.FC = () => {
 
   return (
     <Flex display="column">
-      <Flex justify="space-between">
-        <Heading as="h4" size="lg" color="blue.100" mb={4}>
+      <Flex justify="space-between" mb={4}>
+        <Heading as="h4" size="lg" color="blue.100">
           Pacientes
         </Heading>
-        <Flex
-          onClick={() => router.push('/painel?d=pacientes&action=novoPaciente')}
-        >
-          Icones
-        </Flex>
+        <ButtonWithIcon onClick={() => router.push('/painel?d=pacientes&action=novoPaciente')} icon={FaUserPlus} />
       </Flex>
       <Flex
         borderColor="blue.400"
@@ -54,4 +52,4 @@ const PacienteHome: React.FC = () => {
   )
 }
 
-export default PacienteHome
+export default PacientesList

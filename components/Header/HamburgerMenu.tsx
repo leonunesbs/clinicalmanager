@@ -7,12 +7,13 @@ import {
   DrawerHeader,
   DrawerOverlay,
   Flex,
-  Image,
   Text,
   useDisclosure
 } from '@chakra-ui/core'
 import { MenuItemsProps } from '.'
 import MenuItem from './MenuItem'
+import ButtonWithIcon from '../ButtonWithIcon'
+import { GiHamburgerMenu } from 'react-icons/Gi'
 
 // import { Container } from './styles';
 interface HamburgerMenuProps extends MenuItemsProps {
@@ -28,25 +29,11 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
 
   return (
     <>
-      <Flex
-        d={['flex', 'none']}
-        ref={btnRef}
+      <ButtonWithIcon
+        icon={GiHamburgerMenu}
+        rightText={rightText && rightText}
         onClick={onOpen}
-        justify="center"
-        align="center"
-        cursor="pointer"
-        p={2}
-      >
-        <Image
-          size={4}
-          src={require('../../public/images/hamburgerMenu.png?webp')}
-        />
-        {rightText && (
-          <Text color="blue.100" ml={2}>
-            {rightText}
-          </Text>
-        )}
-      </Flex>
+      />
       <Drawer
         isOpen={isOpen}
         placement="left"
