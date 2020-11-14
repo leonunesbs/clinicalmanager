@@ -4,6 +4,7 @@ import React from 'react'
 import Head from 'next/head'
 import Header from '../components/Header'
 import CallToAction from '../components/CallToAction'
+import { Flex } from '@chakra-ui/core'
 
 const Home: React.FC = () => {
   return (
@@ -12,8 +13,16 @@ const Home: React.FC = () => {
         <title>Clinical Manager</title>
       </Head>
       <main>
-        <Header />
-        <CallToAction />
+        <Flex
+          flexDirection="column"
+          h="100vh"
+          maxH="100vh"
+          w="100vw"
+          overflow="hidden"
+        >
+          <Header />
+          <CallToAction />
+        </Flex>
       </main>
     </div>
   )

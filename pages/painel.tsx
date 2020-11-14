@@ -21,9 +21,9 @@ const Painel: React.FC = () => {
   return (
     <Flex
       display="column"
-      flexGrow={1}
-      h="100%"
-      minH="100vh"
+      h="100vh"
+      maxH="100vh"
+      overflow="hidden"
       backgroundColor="blue.700"
     >
       <PainelHeader />
