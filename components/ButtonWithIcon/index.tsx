@@ -1,6 +1,6 @@
 /* eslint-disable no-use-before-define */
 import React, { forwardRef } from 'react'
-import { Button, Flex } from '@chakra-ui/core'
+import { Button, Flex, Text } from '@chakra-ui/core'
 
 interface CustomButtomProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -29,8 +29,8 @@ const ButtonWithIcon: React.ForwardRefRenderFunction<
       p={1}
       {...rest}
     >
-      <Flex as={icon} size="2xs" m={1} />
-      {rightText}
+      <Flex as={icon} size="2xs" />
+      {rightText && <Text ml={1}>{rightText}</Text>}
     </Button>
   )
 }
