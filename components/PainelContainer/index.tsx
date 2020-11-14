@@ -54,9 +54,9 @@ const PainelContainer: React.FC<PainelContainerProps> = ({
   return (
     <Flex
       display="column"
-      minH="100vh"
-      overflow="scroll"
-      w="100%"
+      flexGrow={1}
+      h="100%"
+      overflow="auto"
       backgroundColor="blue.500"
       padding={6}
     >

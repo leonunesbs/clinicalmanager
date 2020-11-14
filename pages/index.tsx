@@ -13,13 +13,7 @@ const Home: React.FC = () => {
         <title>Clinical Manager</title>
       </Head>
       <main>
-        <Flex
-          flexDirection="column"
-          h="100vh"
-          maxH="100vh"
-          w="100vw"
-          overflow="hidden"
-        >
+        <Flex flexDirection="column" h="100vh" w="100vw" overflow="hidden">
           <Header />
           <CallToAction />
         </Flex>

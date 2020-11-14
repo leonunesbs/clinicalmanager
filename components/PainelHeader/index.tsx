@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 const PainelHeader: React.FC = () => {
   const router = useRouter()
   return (
-    <HeaderBG h="80px" justify="flex-start">
+    <HeaderBG h="10%" justify="flex-start" boxShadow="0 10px 10px -5px">
       <Image
         cursor="pointer"
         size={12}

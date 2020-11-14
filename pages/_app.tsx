@@ -1,7 +1,8 @@
 /* eslint-disable no-use-before-define */
+import React, { useEffect } from 'react'
+
 import { AppProps, NextWebVitalsMetric } from 'next/app'
 import { useRouter } from 'next/router'
-import React, { useEffect } from 'react'
 import ThemeContainer from '../contexts/theme/ThemeContainer'
 import * as gtag from '../services/gtag'
 

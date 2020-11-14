@@ -9,7 +9,7 @@ const HomeView: React.FC = () => {
       <Head>
         <title>Painel - Clinical Manager</title>
       </Head>
-      <Flex justify="space-between" flexGrow={1}>
+      <Flex justify="space-between">
         <Heading as="h4" size="lg" color="blue.100" mb={4}>
           Início
         </Heading>

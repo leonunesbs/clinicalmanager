@@ -42,14 +42,14 @@ const PainelMenu: React.FC<PainelContainerProps> = ({
         backgroundColor="blue.400"
         d={['inital', 'none']}
       />
-
+      {/* Side menu */}
       <Flex
         width="30%"
         minWidth="150px"
         maxWidth="300px"
         display={['none', 'flex']}
       >
-        <Flex display="column" width="100%" p={2}>
+        <Flex display="column" width="100%" p={2} mt={4}>
           {menuItems.map(item => (
             <Button
               key={item.title}

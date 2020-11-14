@@ -22,7 +22,7 @@ const PacienteHome: React.FC = () => {
 
   return (
     <Flex display="column">
-      <Flex justify="space-between" flexGrow={1}>
+      <Flex justify="space-between">
         <Heading as="h4" size="lg" color="blue.100" mb={4}>
           Pacientes
         </Heading>
@@ -37,8 +37,9 @@ const PacienteHome: React.FC = () => {
         borderWidth={3}
         borderRadius="md"
         h="540px"
-        overflowY="scroll"
+        overflowY="auto"
         display="column"
+        mb={4}
         p={4}
       >
         {pacientes.data ? (
