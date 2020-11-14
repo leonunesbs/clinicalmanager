@@ -29,7 +29,7 @@ const ButtonWithIcon: React.ForwardRefRenderFunction<
       p={1}
       {...rest}
     >
-      <Flex as={icon} size="2xs" />
+      <Flex as={icon} size="xs" />
       {rightText && <Text ml={1}>{rightText}</Text>}
     </Button>
   )
