@@ -35,6 +35,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
         justify="center"
         align="center"
         cursor="pointer"
+        p={2}
       >
         <Image
           size={4}
