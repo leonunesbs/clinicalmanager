@@ -13,7 +13,7 @@ import {
 import { MenuItemsProps } from '.'
 import MenuItem from './MenuItem'
 import ButtonWithIcon from '../ButtonWithIcon'
-import { FiMenu } from 'react-icons/Fi'
+import { FaUserPlus } from 'react-icons/Fa'
 
 // import { Container } from './styles';
 interface HamburgerMenuProps extends MenuItemsProps {
@@ -30,7 +30,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
   return (
     <>
       <ButtonWithIcon
-        icon={FiMenu}
+        icon={FaUserPlus}
         rightText={rightText && rightText}
         onClick={onOpen}
       />
