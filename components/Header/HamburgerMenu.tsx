@@ -43,7 +43,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
       >
         <DrawerOverlay>
           <DrawerContent>
-            <DrawerCloseButton />
+            <DrawerCloseButton borderRadius="sm" />
             <DrawerHeader>Menu</DrawerHeader>
 
             <Flex flexDirection="column" align="center" flexGrow={1}>
