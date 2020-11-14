@@ -45,7 +45,12 @@ const PacientesList: React.FC = () => {
             <PacienteCard key={pct.id} paciente={pct} />
           ))
         ) : (
-            <PacienteCard isLoading={loading} />
+            <>
+              <PacienteCard isLoading={loading} />
+              <PacienteCard isLoading={loading} />
+              <PacienteCard isLoading={loading} />
+              <PacienteCard isLoading={loading} />
+            </>
           )}
       </Flex>
     </Flex>
