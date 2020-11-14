@@ -4,7 +4,7 @@ import { Button, Flex } from '@chakra-ui/core'
 import { MdHome, MdPerson } from 'react-icons/md'
 import { useRouter } from 'next/router'
 import { PainelContainerProps } from '../PainelContainer'
-import HamburguerMenu from '../Header/HamburgerMenu'
+import HamburgerMenu from '../Header/HamburgerMenu'
 
 const PainelMenu: React.FC<PainelContainerProps> = ({
   painelContainerView
@@ -34,7 +34,7 @@ const PainelMenu: React.FC<PainelContainerProps> = ({
   return (
     <>
       <Flex p={3} pl="5%" d={['flex', 'none']}>
-        <HamburguerMenu menuItems={menuItems} rightText="Menu" />
+        <HamburgerMenu menuItems={menuItems} rightText="Menu" />
       </Flex>
       <Flex
         flexGrow={1}

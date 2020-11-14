@@ -1,11 +1,9 @@
 /* eslint-disable no-use-before-define */
 import React, { useRef } from 'react'
 import {
-  Button,
   Drawer,
   DrawerCloseButton,
   DrawerContent,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   Flex,
@@ -21,7 +19,7 @@ interface HamburgerMenuProps extends MenuItemsProps {
   rightText?: string
 }
 
-const HamburguerMenu: React.FC<HamburgerMenuProps> = ({
+const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
   menuItems,
   rightText
 }) => {
@@ -69,13 +67,6 @@ const HamburguerMenu: React.FC<HamburgerMenuProps> = ({
                 </MenuItem>
               ))}
             </Flex>
-
-            <DrawerFooter>
-              <Button variant="outline" mr={3} onClick={onClose}>
-                Cancel
-              </Button>
-              <Button color="blue">Save</Button>
-            </DrawerFooter>
           </DrawerContent>
         </DrawerOverlay>
       </Drawer>
@@ -83,4 +74,4 @@ const HamburguerMenu: React.FC<HamburgerMenuProps> = ({
   )
 }
 
-export default HamburguerMenu
+export default HamburgerMenu

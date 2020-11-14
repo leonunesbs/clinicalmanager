@@ -2,7 +2,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { Image, Link as ChakraLink } from '@chakra-ui/core'
-import HamburguerMenu from './HamburgerMenu'
+import HamburgerMenu from './HamburgerMenu'
 import HeaderBG from './HeaderBG'
 import HeaderText from './HeaderText'
 import HomeMenu from './HomeMenu'
@@ -39,7 +39,7 @@ const Header: React.FC = () => {
   return (
     <>
       <HeaderBG>
-        <HamburguerMenu menuItems={menuItems} />
+        <HamburgerMenu menuItems={menuItems} />
         <Link href="/" passHref>
           <ChakraLink>
             <Image
