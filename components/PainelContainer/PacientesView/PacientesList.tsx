@@ -8,7 +8,7 @@ import { Paciente } from '.'
 import { useFetch } from '../../../hooks/useFetch'
 import PacienteCard from './PacienteCard'
 import { useRouter } from 'next/router'
-import { FaUserPlus } from 'react-icons/Fa'
+import { FaUserPlus } from 'react-icons/fa'
 import ButtonWithIcon from '../../ButtonWithIcon'
 
 const PacientesList: React.FC = () => {
