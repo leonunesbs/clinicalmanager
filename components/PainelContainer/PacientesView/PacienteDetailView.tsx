@@ -112,6 +112,7 @@ const PacienteDetailView: React.FC = () => {
             </Button>
             <Button
               isLoading={saving}
+              loadingText="Salvando..."
               isDisabled={!editing}
               borderRadius="sm"
               type="submit"
