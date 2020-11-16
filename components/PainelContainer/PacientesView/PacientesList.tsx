@@ -2,7 +2,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable multiline-ternary */
 // eslint-disable-next-line no-use-before-define
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { Flex, Heading, Input, Stack } from '@chakra-ui/core'
 import { Paciente } from '.'
 import { useFetch } from '../../../hooks/useFetch'
@@ -23,7 +23,7 @@ const PacientesList: React.FC = () => {
   const handleSearch = useCallback((e) => {
     setSearchString(e.target.value)
     if (pacientes.data) {
-      setSearchData(pacientes.data.filter(pct => pct.nome.includes(searchString)))
+      setSearchData(pacientes.data.filter(pct => pct.nome.toLowerCase().includes(searchString.toLowerCase())))
     }
     if (searchString.length === 0) {
       setSearchData(pacientes.data)
