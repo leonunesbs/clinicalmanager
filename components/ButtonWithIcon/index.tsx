@@ -6,13 +6,14 @@ interface CustomButtomProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   icon: any
   rightText?: string
+  isActive?: boolean
   onClick: () => unknown
 }
 
 const ButtonWithIcon: React.ForwardRefRenderFunction<
   HTMLButtonElement,
   CustomButtomProps
-> = ({ icon, rightText, ...rest }, ref) => {
+> = ({ icon, rightText, isActive, ...rest }, ref) => {
   return (
     <Button
       ref={ref}
@@ -20,10 +21,11 @@ const ButtonWithIcon: React.ForwardRefRenderFunction<
       borderWidth="2px"
       borderRadius="sm"
       backgroundColor=""
-      color="blue.100"
+      color={'blue.100'}
       _hover={{ backgroundColor: 'blue.400' }}
-      _active={{ backgroundColor: 'blue.700' }}
+      _active={{ backgroundColor: 'blue.100', color: 'blue.700' }}
       w={rightText ? '90px' : '35px'}
+      isActive={isActive}
       textAlign="center"
       h="35px"
       p={1}

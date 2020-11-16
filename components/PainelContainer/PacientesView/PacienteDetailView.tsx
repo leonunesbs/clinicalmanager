@@ -66,7 +66,13 @@ const PacienteDetailView: React.FC = () => {
           <Heading as="h4" size="lg" color="blue.100">
             Ficha de identificação
           </Heading>
-          <ButtonWithIcon onClick={handleEdit} icon={MdEdit} ref={editRef} />
+          <ButtonWithIcon
+            onClick={handleEdit}
+            icon={MdEdit}
+            activeColor="blue.700"
+            ref={editRef}
+            isActive={editing}
+          />
         </Flex>
         <Form ref={formRef} onSubmit={handleSubmit} initialData={data}>
           <Flex
