@@ -70,7 +70,6 @@ const PacienteDetailView: React.FC = () => {
           <ButtonWithIcon
             onClick={handleEdit}
             icon={MdEdit}
-            activeColor="blue.700"
             ref={editRef}
             isActive={editing}
           />
