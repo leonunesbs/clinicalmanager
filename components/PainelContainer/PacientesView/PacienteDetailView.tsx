@@ -30,6 +30,7 @@ import {
 } from 'react-icons/md'
 import ButtonWithIcon from '../../ButtonWithIcon'
 import Head from 'next/head'
+import { cpfMask } from '../../../scripts/masks'
 
 const PacienteDetailView: React.FC = () => {
   const formRef = useRef<FormHandles>(null)
@@ -56,6 +57,20 @@ const PacienteDetailView: React.FC = () => {
   useEffect(() => {
     editRef.current.focus()
   }, [])
+
+  useEffect(() => {
+    const cpf = formRef.current.getFieldValue('cpf')
+    if (cpf) {
+      formRef.current.setFieldValue('cpf', cpfMask(cpf))
+    }
+  }, [formRef.current])
+
+  const formatCpf = useCallback(() => {
+    const cpf = formRef.current.getFieldValue('cpf')
+    if (cpf) {
+      formRef.current.setFieldValue('cpf', cpfMask(cpf))
+    }
+  }, [formRef.current])
 
   const handleEdit = useCallback(() => {
     setSaved(false)
@@ -157,7 +172,12 @@ const PacienteDetailView: React.FC = () => {
           >
             <FormControl isRequired>
               <UnformInput name="nome" isLabeled isDisabled={!editing} />
-              <UnformInput name="cpf" isLabeled isDisabled={!editing} />
+              <UnformInput
+                name="cpf"
+                isLabeled
+                isDisabled={!editing}
+                onChange={formatCpf}
+              />
               <UnformInput name="rg" isLabeled isDisabled={!editing} />
               <UnformInput
                 name="data_de_nascimento"

@@ -38,6 +38,7 @@ const UnformInput: React.FC<CustomInputProps> = ({
             `${name.charAt(0).toUpperCase() + name.slice(1)}:`}
         </FormLabel>
       )}
+
       <Input
         id={fieldName}
         ref={inputRef}
@@ -49,6 +50,7 @@ const UnformInput: React.FC<CustomInputProps> = ({
         isInvalid={error && true}
         {...rest}
       />
+
       {error && (
         <FormHelperText color="blue.700" id={`${fieldName + '-helper-text'}`}>
           {error}
