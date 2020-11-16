@@ -8,7 +8,6 @@ import { Paciente } from '.'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { MdKeyboardArrowLeft, MdCheck, MdSave, MdLink } from 'react-icons/md'
-import { mutate } from 'swr'
 import { api } from '../../../services/api'
 import ButtonWithIcon from '../../ButtonWithIcon'
 
@@ -16,8 +15,6 @@ const NovoPaciente: React.FC = () => {
   const formRef = useRef<FormHandles>(null)
   const backRef = useRef(null)
   const editRef = useRef(null)
-  const deleteRef = useRef(null)
-  const cancelRef = useRef(null)
   const router = useRouter()
 
   const [novoPacienteId, setNovoPacienteId] = useState(null)

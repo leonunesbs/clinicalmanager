@@ -178,7 +178,7 @@ const PacienteDetailView: React.FC = () => {
               leftIcon={MdKeyboardArrowLeft}
               backgroundColor="blue.100"
               _hover={{ color: 'blue.700', backgroundColor: 'blue.400' }}
-              onClick={() => router.push('/painel?d=pacientes')}
+              onClick={() => router.back()}
             >
               Pacientes
             </Button>

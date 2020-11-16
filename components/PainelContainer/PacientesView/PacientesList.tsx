@@ -2,7 +2,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable multiline-ternary */
 // eslint-disable-next-line no-use-before-define
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Flex, Heading, Input, Stack } from '@chakra-ui/core'
 import { Paciente } from '.'
 import { useFetch } from '../../../hooks/useFetch'
@@ -17,12 +17,18 @@ const PacientesList: React.FC = () => {
   const [loading, setLoading] = useState(true)
 
   const [isSearching, setIsSearching] = useState(false)
+  const [searchString, setSearchString] = useState('')
+  const [searchData, setSearchData] = useState([])
 
-  useEffect(() => {
+  const handleSearch = useCallback((e) => {
+    setSearchString(e.target.value)
     if (pacientes.data) {
-      setLoading(false)
+      setSearchData(pacientes.data.filter(pct => pct.nome.includes(searchString)))
     }
-  }, [pacientes.data])
+    if (searchString.length === 0) {
+      setSearchData(pacientes.data)
+    }
+  }, [searchString, pacientes, searchData])
 
   return (
     <Flex display="column">
@@ -35,24 +41,27 @@ const PacientesList: React.FC = () => {
           <ButtonWithIcon onClick={() => router.push('/painel?d=pacientes&action=novoPaciente')} icon={MdPersonAdd} />
         </Stack>
       </Flex>
-      <Flex display={!isSearching && 'none'}>
-        <Input />
+      <Flex display={!isSearching && 'none'} mb={8}>
+        <Input value={searchString} borderRadius='sm' onChange={handleSearch} placeholder='Buscar paciente' />
       </Flex>
       <Flex
         borderColor="blue.400"
         borderWidth={3}
         borderRadius="md"
-        h="540px"
+        maxH="440px"
         overflowY="auto"
         display="column"
         mb={4}
         p={4}
       >
         {pacientes.data ? (
-
-          pacientes.data.map((pct: Paciente) => (
-            <PacienteCard key={pct.id} paciente={pct} />
-          ))
+          isSearching
+            ? searchData.map((pct: Paciente) => (
+              <PacienteCard key={pct.id} paciente={pct} />
+            ))
+            : pacientes.data.map((pct: Paciente) => (
+              <PacienteCard key={pct.id} paciente={pct} />
+            ))
         ) : (
             <>
               <PacienteCard isLoading={loading} />
