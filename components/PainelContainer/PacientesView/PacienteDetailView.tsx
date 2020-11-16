@@ -65,10 +65,15 @@ const PacienteDetailView: React.FC = () => {
     }
   }, [formRef.current])
 
-  const formatCpf = useCallback(() => {
+  const handleFieldsFormat = useCallback(() => {
     const cpf = formRef.current.getFieldValue('cpf')
     if (cpf) {
       formRef.current.setFieldValue('cpf', cpfMask(cpf))
+    }
+
+    const nome = formRef.current.getFieldValue('nome')
+    if (nome) {
+      formRef.current.setFieldValue('nome', nome.toUpperCase())
     }
   }, [formRef.current])
 
@@ -171,12 +176,17 @@ const PacienteDetailView: React.FC = () => {
             p={4}
           >
             <FormControl isRequired>
-              <UnformInput name="nome" isLabeled isDisabled={!editing} />
+              <UnformInput
+                name="nome"
+                isLabeled
+                isDisabled={!editing}
+                onChange={handleFieldsFormat}
+              />
               <UnformInput
                 name="cpf"
                 isLabeled
                 isDisabled={!editing}
-                onChange={formatCpf}
+                onChange={handleFieldsFormat}
               />
               <UnformInput name="rg" isLabeled isDisabled={!editing} />
               <UnformInput
