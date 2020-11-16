@@ -40,6 +40,7 @@ const PacienteDetailView: React.FC = () => {
 
   const handleSubmit: SubmitHandler<Paciente> = useCallback(async formData => {
     setSaving(true)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { data, ok }: any = await api.put(`paciente/${id}/`, formData)
 
     if (ok) {
