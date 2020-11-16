@@ -3,13 +3,31 @@ import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useFetch } from '../../../hooks/useFetch'
 import { Paciente } from '.'
-import { Button, Flex, FormControl, Heading, Stack } from '@chakra-ui/core'
+import {
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogContent,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogOverlay,
+  Button,
+  Flex,
+  FormControl,
+  Heading,
+  Stack
+} from '@chakra-ui/core'
 import { SubmitHandler, FormHandles } from '@unform/core'
 import { Form } from '@unform/web'
 import UnformInput from '../../UnformInput'
 import { mutate as mutateGlobal } from 'swr'
 import { api } from '../../../services/api'
-import { MdCheck, MdEdit, MdKeyboardArrowLeft } from 'react-icons/md'
+import {
+  MdCheck,
+  MdDelete,
+  MdEdit,
+  MdKeyboardArrowLeft,
+  MdSave
+} from 'react-icons/md'
 import ButtonWithIcon from '../../ButtonWithIcon'
 import Head from 'next/head'
 
@@ -17,6 +35,8 @@ const PacienteDetailView: React.FC = () => {
   const formRef = useRef<FormHandles>(null)
   const backRef = useRef(null)
   const editRef = useRef(null)
+  const deleteRef = useRef(null)
+  const cancelRef = useRef(null)
   const router = useRouter()
   const { id } = router.query
   if (!id) {
@@ -28,15 +48,25 @@ const PacienteDetailView: React.FC = () => {
 
   const [editing, setEditing] = useState(false)
   const [saving, setSaving] = useState(false)
+  const [saved, setSaved] = useState(false)
+
+  const [isOpen, setIsOpen] = useState(false)
+  const onClose = () => setIsOpen(false)
 
   useEffect(() => {
     editRef.current.focus()
   }, [])
 
   const handleEdit = useCallback(() => {
+    setSaved(false)
     setEditing(!editing)
     setTimeout(() => formRef.current.getFieldRef('nome').focus(), 50)
   }, [editing])
+
+  const handleDelete = useCallback(() => {
+    api.delete(`/paciente/${id}/`)
+    router.push('/painel?d=pacientes')
+  }, [])
 
   const handleSubmit: SubmitHandler<Paciente> = useCallback(async formData => {
     formRef.current.setErrors({})
@@ -56,6 +86,7 @@ const PacienteDetailView: React.FC = () => {
       }
     }
     setTimeout(() => setSaving(false), 100)
+    setSaved(true)
   }, [])
   return (
     <>
@@ -67,12 +98,53 @@ const PacienteDetailView: React.FC = () => {
           <Heading as="h4" size="lg" color="blue.100">
             Ficha de identificação
           </Heading>
-          <ButtonWithIcon
-            onClick={handleEdit}
-            icon={MdEdit}
-            ref={editRef}
-            isActive={editing}
-          />
+          <Stack isInline>
+            <ButtonWithIcon
+              onClick={() => setIsOpen(true)}
+              icon={MdDelete}
+              ref={deleteRef}
+              isDisabled={!editing}
+            />
+            <ButtonWithIcon
+              onClick={handleEdit}
+              icon={MdEdit}
+              ref={editRef}
+              isActive={editing}
+            />
+            <AlertDialog
+              isOpen={isOpen}
+              leastDestructiveRef={cancelRef}
+              onClose={onClose}
+            >
+              <AlertDialogOverlay />
+              <AlertDialogContent borderRadius="sm" backgroundColor="blue.100">
+                <AlertDialogHeader fontSize="lg" fontWeight="bold">
+                  Remover Paciente?
+                </AlertDialogHeader>
+
+                <AlertDialogBody>
+                  Tem ceteza? Esta ação não poderá ser desfeita.
+                </AlertDialogBody>
+
+                <AlertDialogFooter>
+                  <Button ref={cancelRef} onClick={onClose} borderRadius="sm">
+                    Cancelar
+                  </Button>
+                  <Button
+                    borderRadius="sm"
+                    variantColor="red"
+                    onClick={() => {
+                      handleDelete()
+                      onClose()
+                    }}
+                    ml={3}
+                  >
+                    Remover
+                  </Button>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+          </Stack>
         </Flex>
         <Form ref={formRef} onSubmit={handleSubmit} initialData={data}>
           <Flex
@@ -106,9 +178,9 @@ const PacienteDetailView: React.FC = () => {
               leftIcon={MdKeyboardArrowLeft}
               backgroundColor="blue.100"
               _hover={{ color: 'blue.700', backgroundColor: 'blue.400' }}
-              onClick={() => router.back()}
+              onClick={() => router.push('/painel?d=pacientes')}
             >
-              Voltar
+              Pacientes
             </Button>
             <Button
               isLoading={saving}
@@ -121,9 +193,9 @@ const PacienteDetailView: React.FC = () => {
               size="lg"
               backgroundColor="blue.700"
               _hover={{ color: 'blue.700', backgroundColor: 'blue.400' }}
-              rightIcon={MdCheck}
+              rightIcon={saved ? MdCheck : MdSave}
             >
-              Salvar
+              {saved ? 'Salvo' : 'Salvar'}
             </Button>
           </Stack>
         </Form>

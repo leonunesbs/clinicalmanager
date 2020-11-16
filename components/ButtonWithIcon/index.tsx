@@ -7,13 +7,14 @@ interface CustomButtomProps {
   icon: any
   rightText?: string
   isActive?: boolean
+  isDisabled?: boolean
   onClick: () => unknown
 }
 
 const ButtonWithIcon: React.ForwardRefRenderFunction<
   HTMLButtonElement,
   CustomButtomProps
-> = ({ icon, rightText, isActive, ...rest }, ref) => {
+> = ({ icon, rightText, isActive, isDisabled, ...rest }, ref) => {
   return (
     <Button
       ref={ref}
@@ -26,6 +27,7 @@ const ButtonWithIcon: React.ForwardRefRenderFunction<
       _active={{ backgroundColor: 'blue.100', color: 'blue.700' }}
       w={rightText ? '90px' : '35px'}
       isActive={isActive}
+      isDisabled={isDisabled}
       textAlign="center"
       h="35px"
       p={1}
