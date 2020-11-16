@@ -7,10 +7,10 @@ import { useRouter } from 'next/router'
 const PainelHeader: React.FC = () => {
   const router = useRouter()
   return (
-    <HeaderBG h="10%" justify="flex-start" boxShadow="0 10px 10px -5px">
+    <HeaderBG h="7%" justify="flex-start" boxShadow="0 10px 10px -5px">
       <Image
         cursor="pointer"
-        size={12}
+        maxHeight={['34px', '55px']}
         src={require('../../public/images/logo.svg')}
         mr={6}
         onClick={() => router.push('/')}
@@ -19,6 +19,8 @@ const PainelHeader: React.FC = () => {
         cursor="pointer"
         color="blue.100"
         onClick={() => router.push('/painel')}
+        as="h1"
+        size="lg"
       >
         Painel
       </Heading>

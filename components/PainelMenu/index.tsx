@@ -1,9 +1,20 @@
 // eslint-disable-next-line no-use-before-define
-import React, { useCallback } from 'react'
-import { Button, Flex } from '@chakra-ui/core'
+import React, { useCallback, useRef } from 'react'
+import {
+  Button,
+  Drawer,
+  Text,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
+  Flex,
+  useDisclosure
+} from '@chakra-ui/core'
 import { MdHome, MdPerson } from 'react-icons/md'
 import { useRouter } from 'next/router'
-import HamburgerMenu from '../Header/HamburgerMenu'
+import { FiMenu } from 'react-icons/fi'
+import MenuItem from '../Header/MenuItem'
 
 interface PainelMenuProps {
   painelMenuView: string | string[]
@@ -32,6 +43,9 @@ const PainelMenu: React.FC<PainelMenuProps> = ({ painelMenuView }) => {
     }
   ]
 
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const btnRef = useRef<HTMLDivElement>(null)
+
   const checkIsActive = useCallback(
     (slug: string | string[]) => {
       for (let i = 0; i < slug.length; i++) {
@@ -46,8 +60,47 @@ const PainelMenu: React.FC<PainelMenuProps> = ({ painelMenuView }) => {
 
   return (
     <>
-      <Flex p={3} pl="5%" d={['flex', 'none']}>
-        <HamburgerMenu menuItems={menuItems} rightText="Menu" />
+      <Flex p={1} pl="5%" d={['flex', 'none']} backgroundColor="blue.100">
+        <Button
+          borderColor="blue.700"
+          borderWidth="2px"
+          borderRadius="sm"
+          backgroundColor=""
+          color={'blue.700'}
+          _hover={{ backgroundColor: 'blue.400' }}
+          _active={{ backgroundColor: 'blue.100', color: 'blue.700' }}
+          onClick={onOpen}
+          textAlign="center"
+        >
+          <Flex as={FiMenu} size="2xs" />
+          <Text fontWeight="light" color={'blue.700'} ml={1}>
+            Menu
+          </Text>
+        </Button>
+        <Drawer
+          isOpen={isOpen}
+          placement="left"
+          onClose={onClose}
+          size="xs"
+          finalFocusRef={btnRef}
+        >
+          <DrawerOverlay>
+            <DrawerContent>
+              <DrawerCloseButton borderRadius="sm" />
+              <DrawerHeader>Menu</DrawerHeader>
+
+              <Flex flexDirection="column" align="center" flexGrow={1}>
+                {menuItems.map(item => (
+                  <MenuItem key={item.title} href={item.href} w="80%">
+                    <Text fontSize="sm" textAlign="center">
+                      {item.title}
+                    </Text>
+                  </MenuItem>
+                ))}
+              </Flex>
+            </DrawerContent>
+          </DrawerOverlay>
+        </Drawer>
       </Flex>
       <Flex
         flexGrow={1}

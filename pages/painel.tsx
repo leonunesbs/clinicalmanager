@@ -27,7 +27,7 @@ const Painel: React.FC = () => {
       backgroundColor="blue.700"
     >
       <PainelHeader />
-      <Flex flexDirection={['column', 'row']} h="90%" overflow="hidden">
+      <Flex flexDirection={['column', 'row']} h="93%" overflow="hidden">
         <PainelMenu painelMenuView={viewToRender} />
         <PainelContainer painelContainerView={viewToRender} />
       </Flex>

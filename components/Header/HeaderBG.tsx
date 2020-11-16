@@ -10,8 +10,9 @@ const HeaderBG: React.FC<CustomProps> = ({ children, ...rest }) => {
   return (
     <>
       <Flex
-        background="radial-gradient(114.98% 213.06% at 50% 100%, #021526 0%, #037F8B 100%);"
-        h={['80px', '100px']}
+        // background="radial-gradient(114.98% 213.06% at 50% 100%, #021526 0%, #037F8B 100%);"
+        backgroundColor="blue.700"
+        h="7%"
         align="center"
         justify="space-between"
         px={['8%', '5%']}

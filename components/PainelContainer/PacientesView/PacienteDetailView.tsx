@@ -44,7 +44,6 @@ const PacienteDetailView: React.FC = () => {
     router.push('/painel?d=pacientes')
   }
   const { data, mutate } = useFetch<Paciente>(id ? `paciente/${id}/` : '')
-
   const pacientes = useFetch<Paciente[]>('pacientes/')
 
   const [editing, setEditing] = useState(false)
