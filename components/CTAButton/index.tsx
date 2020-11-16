@@ -7,7 +7,7 @@ interface CustomButtonProps extends ButtonProps {
 }
 
 // import { Container } from './styles';
-const CustomButton: React.FC<CustomButtonProps> = ({
+const CTAButotn: React.FC<CustomButtonProps> = ({
   children,
   isBlock,
   ...rest
@@ -34,4 +34,4 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   )
 }
 
-export default CustomButton
+export default CTAButotn

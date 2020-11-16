@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
 import React from 'react'
 import { Flex, Heading } from '@chakra-ui/core'
-import CustomButton from '../CustomButton'
+import CTAButotn from '../CTAButton'
 import { useRouter } from 'next/dist/client/router'
 
 const CallToAction: React.FC = () => {
@@ -31,13 +31,9 @@ const CallToAction: React.FC = () => {
         >
           Compromisso em provomer saúde e bem estar.
         </Heading>
-        <CustomButton
-          mt={6}
-          isBlock
-          onClick={() => router.push('/agendamento')}
-        >
+        <CTAButotn mt={6} isBlock onClick={() => router.push('/agendamento')}>
           Agende sua consulta
-        </CustomButton>
+        </CTAButotn>
       </Flex>
     </Flex>
   )

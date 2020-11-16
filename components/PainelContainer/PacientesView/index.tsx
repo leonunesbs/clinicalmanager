@@ -11,6 +11,8 @@ export interface Paciente {
   nome: string
   // eslint-disable-next-line camelcase
   data_de_nascimento: string
+  // eslint-disable-next-line camelcase
+  data_de_nascimento_formated: string
   idade: number
   cpf: string
   rg: string

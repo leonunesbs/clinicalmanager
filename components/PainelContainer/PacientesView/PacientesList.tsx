@@ -17,8 +17,8 @@ const PacientesList: React.FC = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    if (!pacientes.data) {
-      setLoading(true)
+    if (pacientes.data) {
+      setLoading(false)
     }
   }, [pacientes.data])
 
