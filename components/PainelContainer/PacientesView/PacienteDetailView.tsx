@@ -57,13 +57,6 @@ const PacienteDetailView: React.FC = () => {
     editRef.current.focus()
   }, [])
 
-  useEffect(() => {
-    const cpf = formRef.current.getFieldValue('cpf')
-    if (cpf) {
-      formRef.current.setFieldValue('cpf', cpfMask(cpf))
-    }
-  }, [formRef.current])
-
   const handleFieldsFormat = useCallback(() => {
     const cpf = formRef.current.getFieldValue('cpf')
     if (cpf) {

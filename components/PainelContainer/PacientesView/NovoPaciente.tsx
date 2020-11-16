@@ -10,6 +10,7 @@ import { useRouter } from 'next/router'
 import { MdKeyboardArrowLeft, MdCheck, MdSave, MdLink } from 'react-icons/md'
 import { api } from '../../../services/api'
 import ButtonWithIcon from '../../ButtonWithIcon'
+import { cpfMask } from '../../../scripts/masks'
 
 const NovoPaciente: React.FC = () => {
   const formRef = useRef<FormHandles>(null)
@@ -22,6 +23,18 @@ const NovoPaciente: React.FC = () => {
   const [editing, setEditing] = useState(true)
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
+
+  const handleFieldsFormat = useCallback(() => {
+    const cpf = formRef.current.getFieldValue('cpf')
+    if (cpf) {
+      formRef.current.setFieldValue('cpf', cpfMask(cpf))
+    }
+
+    const nome = formRef.current.getFieldValue('nome')
+    if (nome) {
+      formRef.current.setFieldValue('nome', nome.toUpperCase())
+    }
+  }, [formRef.current])
 
   const handleSubmit: SubmitHandler<Paciente> = useCallback(async formData => {
     formRef.current.setErrors({})
@@ -72,8 +85,18 @@ const NovoPaciente: React.FC = () => {
             p={4}
           >
             <FormControl isRequired>
-              <UnformInput name="nome" isLabeled isDisabled={!editing} />
-              <UnformInput name="cpf" isLabeled isDisabled={!editing} />
+              <UnformInput
+                name="nome"
+                onChange={handleFieldsFormat}
+                isLabeled
+                isDisabled={!editing}
+              />
+              <UnformInput
+                name="cpf"
+                onChange={handleFieldsFormat}
+                isLabeled
+                isDisabled={!editing}
+              />
               <UnformInput name="rg" isLabeled isDisabled={!editing} />
               <UnformInput
                 name="data_de_nascimento"
