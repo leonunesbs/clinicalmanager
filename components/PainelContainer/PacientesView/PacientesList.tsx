@@ -2,19 +2,21 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable multiline-ternary */
 // eslint-disable-next-line no-use-before-define
-import React, { useEffect, useState } from 'react'
-import { Flex, Heading } from '@chakra-ui/core'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { Flex, Heading, Input, Stack } from '@chakra-ui/core'
 import { Paciente } from '.'
 import { useFetch } from '../../../hooks/useFetch'
 import PacienteCard from './PacienteCard'
 import { useRouter } from 'next/router'
-import { FaUserPlus } from 'react-icons/fa'
 import ButtonWithIcon from '../../ButtonWithIcon'
+import { MdPersonAdd, MdSearch } from 'react-icons/md'
 
 const PacientesList: React.FC = () => {
   const router = useRouter()
   const pacientes = useFetch<Paciente[]>('pacientes/')
   const [loading, setLoading] = useState(true)
+
+  const [isSearching, setIsSearching] = useState(false)
 
   useEffect(() => {
     if (pacientes.data) {
@@ -28,7 +30,13 @@ const PacientesList: React.FC = () => {
         <Heading as="h4" size="lg" color="blue.100">
           Pacientes
         </Heading>
-        <ButtonWithIcon onClick={() => router.push('/painel?d=pacientes&action=novoPaciente')} icon={FaUserPlus} />
+        <Stack isInline>
+          <ButtonWithIcon onClick={() => setIsSearching(!isSearching)} icon={MdSearch} />
+          <ButtonWithIcon onClick={() => router.push('/painel?d=pacientes&action=novoPaciente')} icon={MdPersonAdd} />
+        </Stack>
+      </Flex>
+      <Flex display={!isSearching && 'none'}>
+        <Input />
       </Flex>
       <Flex
         borderColor="blue.400"
@@ -41,6 +49,7 @@ const PacientesList: React.FC = () => {
         p={4}
       >
         {pacientes.data ? (
+
           pacientes.data.map((pct: Paciente) => (
             <PacienteCard key={pct.id} paciente={pct} />
           ))

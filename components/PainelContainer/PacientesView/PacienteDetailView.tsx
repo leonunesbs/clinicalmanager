@@ -79,6 +79,7 @@ const PacienteDetailView: React.FC = () => {
       mutateGlobal(`paciente/${id}/`, formData)
       mutateGlobal('pacientes/', pacientes.data)
       setEditing(false)
+      setSaved(true)
       backRef.current.focus()
     } else {
       for (const field in data) {
@@ -86,7 +87,6 @@ const PacienteDetailView: React.FC = () => {
       }
     }
     setTimeout(() => setSaving(false), 100)
-    setSaved(true)
   }, [])
   return (
     <>
