@@ -45,7 +45,7 @@ const NovoPaciente: React.FC = () => {
 
     if (ok) {
       const { id } = data
-      mutateGlobal('pacientes/', formData)
+      mutateGlobal(`paciente/${id}/`, formData)
       setNovoPacienteId(id)
       setSaved(true)
       setEditing(false)
