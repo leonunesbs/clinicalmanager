@@ -63,7 +63,7 @@ const NovoPaciente: React.FC = () => {
       </Head>
       <Flex flexDir="column">
         <Flex justify="space-between" mb={4}>
-          <Heading as="h4" size="lg" color="blue.100">
+          <Heading as="h2" size="lg" color="blue.100">
             Novo paciente
           </Heading>
           <Stack isInline display={!saved && 'none'}>

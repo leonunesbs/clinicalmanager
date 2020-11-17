@@ -33,8 +33,8 @@ const PacientesList: React.FC = () => {
   return (
     <Flex display="column">
       <Flex justify="space-between" mb={4}>
-        <Heading as="h4" size="lg" color="blue.100">
-          Pacientes
+        <Heading as="h2" size="lg" color="blue.100">
+          {isSearching ? 'Buscar paciente' : 'Pacientes'}
         </Heading>
         <Stack isInline>
           <ButtonWithIcon onClick={() => setIsSearching(!isSearching)} icon={MdSearch} isActive={isSearching} />
