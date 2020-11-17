@@ -9,6 +9,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { MdKeyboardArrowLeft, MdCheck, MdSave, MdLink } from 'react-icons/md'
 import { api } from '../../../services/api'
+import { mutate as mutateGlobal } from 'swr'
 import ButtonWithIcon from '../../ButtonWithIcon'
 import { cpfMask } from '../../../scripts/masks'
 
@@ -44,6 +45,7 @@ const NovoPaciente: React.FC = () => {
 
     if (ok) {
       const { id } = data
+      mutateGlobal('pacientes/', formData)
       setNovoPacienteId(id)
       setSaved(true)
       setEditing(false)
