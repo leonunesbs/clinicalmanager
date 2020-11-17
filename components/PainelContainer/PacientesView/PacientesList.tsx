@@ -41,8 +41,8 @@ const PacientesList: React.FC = () => {
           <ButtonWithIcon onClick={() => router.push('/painel?d=pacientes&action=novoPaciente')} icon={MdPersonAdd} />
         </Stack>
       </Flex>
-      <Flex display={!isSearching && 'none'} mb={8}>
-        <Input value={searchString} borderRadius='sm' onChange={handleSearch} placeholder='Buscar paciente' />
+      <Flex display={!isSearching && 'none'} mb={10}>
+        <Input value={searchString} borderRadius='sm' onChange={handleSearch} placeholder='Digite o nome do paciente' />
       </Flex>
       <Flex
         borderColor="blue.400"
@@ -50,7 +50,7 @@ const PacientesList: React.FC = () => {
         borderRadius="md"
         maxH="440px"
         overflowY="auto"
-        display="column"
+        display={isSearching ? searchString.length < 1 && 'none' : 'column'}
         mb={4}
         p={4}
       >
