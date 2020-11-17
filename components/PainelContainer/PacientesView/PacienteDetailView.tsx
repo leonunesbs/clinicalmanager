@@ -77,8 +77,8 @@ const PacienteDetailView: React.FC = () => {
 
   const handleDelete = useCallback(() => {
     api.delete(`/paciente/${id}/`)
-    router.push('/painel?d=pacientes')
     mutateGlobal('pacientes/', pacientes.data)
+    router.push('/painel?d=pacientes')
   }, [])
 
   const handleSubmit: SubmitHandler<Paciente> = useCallback(async formData => {
