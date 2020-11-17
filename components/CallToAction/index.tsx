@@ -28,6 +28,7 @@ const CallToAction: React.FC = () => {
           color="blue.100"
           fontSize={['3xl', '5xl']}
           alignSelf={['center', 'flex-start']}
+          as="h1"
         >
           Compromisso em provomer saúde e bem estar.
         </Heading>
