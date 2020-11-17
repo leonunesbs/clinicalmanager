@@ -14,7 +14,7 @@ import { MdPersonAdd, MdSearch } from 'react-icons/md'
 const PacientesList: React.FC = () => {
   const router = useRouter()
   const pacientes = useFetch<Paciente[]>('pacientes/')
-  const [loading, setLoading] = useState(true)
+  const [loading] = useState(true)
 
   const [isSearching, setIsSearching] = useState(false)
   const [searchString, setSearchString] = useState('')
@@ -59,9 +59,12 @@ const PacientesList: React.FC = () => {
             ? searchData.map((pct: Paciente) => (
               <PacienteCard key={pct.id} paciente={pct} />
             ))
-            : pacientes.data.map((pct: Paciente) => (
-              <PacienteCard key={pct.id} paciente={pct} />
-            ))
+            : (
+              pacientes.data.length === 0 ? 'Nada a mostrar'
+                : pacientes.data.map((pct: Paciente) => (
+                  <PacienteCard key={pct.id} paciente={pct} />
+                ))
+            )
         ) : (
             <>
               <PacienteCard isLoading={loading} />
