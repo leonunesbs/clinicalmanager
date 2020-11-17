@@ -75,8 +75,9 @@ const PacienteDetailView: React.FC = () => {
     setTimeout(() => formRef.current.getFieldRef('nome').focus(), 50)
   }, [editing])
 
-  const handleDelete = useCallback(() => {
-    api.delete(`/paciente/${id}/`)
+  const handleDelete = useCallback(async () => {
+    await api.delete(`/paciente/${id}/`)
+    mutate(pacientes.data)
     mutateGlobal('pacientes/', pacientes.data)
     router.push('/painel?d=pacientes')
   }, [])
