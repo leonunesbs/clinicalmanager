@@ -11,6 +11,12 @@ const Home: React.FC = () => {
     <div>
       <Head>
         <title>Clinical Manager</title>
+        <meta
+          name="description"
+          content="Gerenciador de consultas, pacientes, profissionais e suas agendas para atendimentos clínicos ou cirurgicos."
+        />
+        <meta name="keywords" content="Médico, Leonardo, Nunes, Piauí" />
+        <meta name="author" content="Leonardo Nunes" />
       </Head>
       <main>
         <Flex flexDirection="column" h="100vh" w="100vw" overflow="hidden">
