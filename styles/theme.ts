@@ -13,6 +13,10 @@ const customTheme: DefaultTheme = {
     light: 300,
     bold: 700
   },
+  shadows: {
+    ...theme.shadows,
+    standard: 'rgba(0, 0, 0, 0.16) 0px 1px 4px'
+  },
   radii: {
     ...theme.radii,
     sm: '4px',

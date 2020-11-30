@@ -12,7 +12,7 @@ export interface Paciente {
   // eslint-disable-next-line camelcase
   data_de_nascimento: string
   // eslint-disable-next-line camelcase
-  data_de_nascimento_formated: string
+  data_de_nascimento_local_format: string
   idade: number
   cpf: string
   rg: string

@@ -11,9 +11,11 @@ import {
   Flex,
   useDisclosure
 } from '@chakra-ui/core'
-import { MdHome, MdPerson } from 'react-icons/md'
+import { MdHome, MdPerson, MdSchedule } from 'react-icons/md'
 import { useRouter } from 'next/router'
 import { FiMenu } from 'react-icons/fi'
+import { BsCalendar } from 'react-icons/bs'
+import { FaFileArchive } from 'react-icons/fa'
 import MenuItem from '../Header/MenuItem'
 
 interface PainelMenuProps {
@@ -30,16 +32,29 @@ const PainelMenu: React.FC<PainelMenuProps> = ({ painelMenuView }) => {
       slug: ['home']
     },
     {
+      title: 'Agenda',
+      href: '/painel?d=agenda',
+      icon: MdSchedule,
+      slug: ['agenda']
+    },
+    {
+      title: 'Agenda Calendário',
+      href: '/painel?d=agendaCalendário',
+      icon: BsCalendar,
+      slug: ['agendaCalendário']
+    },
+    {
       title: 'Pacientes',
       href: '/painel?d=pacientes',
       icon: MdPerson,
       slug: ['paciente', 'pacientes']
     },
+
     {
-      title: 'Consultas',
-      href: '/painel?d=consultas',
-      icon: MdPerson,
-      slug: ['consultas']
+      title: 'Prontuários',
+      href: '/painel?d=prontuarios',
+      icon: FaFileArchive,
+      slug: ['prontuarios']
     }
   ]
 
@@ -60,22 +75,23 @@ const PainelMenu: React.FC<PainelMenuProps> = ({ painelMenuView }) => {
 
   return (
     <>
-      <Flex p={1} pl="5%" d={['flex', 'none']} backgroundColor="blue.100">
+      <Flex
+        p={1}
+        pl="5%"
+        d={['flex', 'none']}
+        shadow="standard"
+        backgroundColor="blue.100"
+      >
         <Button
-          borderColor="blue.700"
-          borderWidth="2px"
-          borderRadius="sm"
           backgroundColor=""
           color={'blue.700'}
           _hover={{ backgroundColor: 'blue.400' }}
           _active={{ backgroundColor: 'blue.100', color: 'blue.700' }}
           onClick={onOpen}
           textAlign="center"
+          p={0}
         >
           <Flex as={FiMenu} size="2xs" />
-          <Text fontWeight="light" color={'blue.700'} ml={1}>
-            Menu
-          </Text>
         </Button>
         <Drawer
           isOpen={isOpen}

@@ -11,7 +11,7 @@ import { MdKeyboardArrowLeft, MdCheck, MdSave, MdLink } from 'react-icons/md'
 import { api } from '../../../services/api'
 import { mutate as mutateGlobal } from 'swr'
 import ButtonWithIcon from '../../ButtonWithIcon'
-import { cpfMask } from '../../../scripts/masks'
+import { cpfMask, telMask } from '../../../scripts/masks'
 
 const NovoPaciente: React.FC = () => {
   const formRef = useRef<FormHandles>(null)
@@ -35,6 +35,11 @@ const NovoPaciente: React.FC = () => {
     if (nome) {
       formRef.current.setFieldValue('nome', nome.toUpperCase())
     }
+
+    const telefone = formRef.current.getFieldValue('telefone')
+    if (telefone) {
+      formRef.current.setFieldValue('telefone', telMask(telefone))
+    }
   }, [formRef.current])
 
   const handleSubmit: SubmitHandler<Paciente> = useCallback(async formData => {
@@ -43,6 +48,7 @@ const NovoPaciente: React.FC = () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { data, ok }: any = await api.post('paciente/', formData)
 
+    console.log(data)
     if (ok) {
       const { id } = data
       mutateGlobal(`paciente/${id}/`, formData)
@@ -89,6 +95,13 @@ const NovoPaciente: React.FC = () => {
             <FormControl isRequired>
               <UnformInput
                 name="nome"
+                onChange={handleFieldsFormat}
+                isLabeled
+                isDisabled={!editing}
+              />
+              <UnformInput
+                name="telefone"
+                type="tel"
                 onChange={handleFieldsFormat}
                 isLabeled
                 isDisabled={!editing}

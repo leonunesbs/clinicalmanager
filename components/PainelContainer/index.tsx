@@ -2,10 +2,12 @@
 import React, { useEffect, useState } from 'react'
 import { Flex } from '@chakra-ui/core'
 import PacientesView from './PacientesView'
-import ConsultasView from './ConsultasView'
 import HomeView from './HomeView'
 import Custom404 from '../../pages/Custom404'
 import PacienteDetailView from './PacientesView/PacienteDetailView'
+import AgendaView from './AgendaView'
+import ProntuáriosView from './ProntuáriosView'
+import AgendaCalendárioView from './AgendaCalendárioView'
 
 interface PainelContainerProps {
   painelContainerView: string | string[]
@@ -29,8 +31,16 @@ const PainelContainer: React.FC<PainelContainerProps> = ({
       component: <PacienteDetailView key={1} />
     },
     {
-      title: 'consultas',
-      component: <ConsultasView key={1} />
+      title: 'agenda',
+      component: <AgendaView key={1} />
+    },
+    {
+      title: 'agendaCalendário',
+      component: <AgendaCalendárioView key={1} />
+    },
+    {
+      title: 'prontuarios',
+      component: <ProntuáriosView key={1} />
     },
     {
       title: 'loading',

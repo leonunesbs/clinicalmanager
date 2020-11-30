@@ -116,7 +116,7 @@ const Header: React.FC = () => {
       </HeaderBG>
       <Stack
         isInline
-        spacing={4}
+        spacing={2}
         align="center"
         h="55px"
         backgroundColor="blue.100"
@@ -131,8 +131,6 @@ const Header: React.FC = () => {
             minW="130px"
             key={item.title}
             color="blue.500"
-            borderWidth={2}
-            borderColor="blue.400"
             borderRadius="sm"
             _hover={{ backgroundColor: 'blue.100' }}
             _active={{ backgroundColor: 'blue.400', color: 'blue.100' }}

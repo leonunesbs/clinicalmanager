@@ -1,10 +1,10 @@
 // eslint-disable-next-line no-use-before-define
 import React, { useEffect, useState } from 'react'
 import { Flex } from '@chakra-ui/core'
+import { useRouter } from 'next/router'
 import PainelContainer from '../components/PainelContainer'
 import PainelHeader from '../components/PainelHeader'
 import PainelMenu from '../components/PainelMenu'
-import { useRouter } from 'next/dist/client/router'
 
 const Painel: React.FC = () => {
   const router = useRouter() // instanciando router

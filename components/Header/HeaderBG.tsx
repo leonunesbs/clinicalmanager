@@ -17,6 +17,7 @@ const HeaderBG: React.FC<CustomProps> = ({ children, ...rest }) => {
         align="center"
         justify="space-between"
         px={['8%', '5%']}
+        shadow="standard"
         {...rest}
       >
         {children}

@@ -14,7 +14,7 @@ import { GA_TRACKING_ID } from '../services/gtag'
 class MyDocument extends Document<DocumentProps> {
   render(): JSX.Element {
     return (
-      <Html>
+      <Html lang="pt-br">
         <Head>
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           {process.env.NODE_ENV === 'production' && (

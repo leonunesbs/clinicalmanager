@@ -22,7 +22,7 @@ const PacienteCard: React.FC<PacienteProps> = ({
       backgroundColor="blue.100"
       p={4}
       mb={2}
-      boxShadow="rgba(0, 0, 0, 0.16) 0px 1px 4px"
+      shadow="standard"
       borderRadius="sm"
       fontSize={['xs', 'sm']}
       w="100%"
@@ -39,7 +39,7 @@ const PacienteCard: React.FC<PacienteProps> = ({
             <Text>CPF: {paciente?.cpf}</Text>
           </Flex>
           <Flex flexDir="column" align={['flex-start', 'flex-end']}>
-            <Text>DN: {paciente?.data_de_nascimento}</Text>
+            <Text>DN: {paciente?.data_de_nascimento_local_format}</Text>
             <Text>Idade: {paciente?.idade} anos</Text>
           </Flex>
         </Flex>

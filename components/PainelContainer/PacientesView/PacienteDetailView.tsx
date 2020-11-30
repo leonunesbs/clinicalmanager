@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-use-before-define
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useFetch } from '../../../hooks/useFetch'
 import { Paciente } from '.'
@@ -26,11 +26,12 @@ import {
   MdDelete,
   MdEdit,
   MdKeyboardArrowLeft,
-  MdSave
+  MdSave,
+  MdSend
 } from 'react-icons/md'
 import ButtonWithIcon from '../../ButtonWithIcon'
 import Head from 'next/head'
-import { cpfMask } from '../../../scripts/masks'
+import { cpfMask, telMask } from '../../../scripts/masks'
 
 const PacienteDetailView: React.FC = () => {
   const formRef = useRef<FormHandles>(null)
@@ -40,9 +41,6 @@ const PacienteDetailView: React.FC = () => {
   const cancelRef = useRef(null)
   const router = useRouter()
   const { id } = router.query
-  if (!id) {
-    router.push('/painel?d=pacientes')
-  }
   const { data, mutate } = useFetch<Paciente>(id ? `paciente/${id}/` : '')
   const pacientes = useFetch<Paciente[]>('pacientes/')
 
@@ -53,10 +51,6 @@ const PacienteDetailView: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
   const onClose = () => setIsOpen(false)
 
-  useEffect(() => {
-    editRef.current.focus()
-  }, [])
-
   const handleFieldsFormat = useCallback(() => {
     const cpf = formRef.current.getFieldValue('cpf')
     if (cpf) {
@@ -66,6 +60,11 @@ const PacienteDetailView: React.FC = () => {
     const nome = formRef.current.getFieldValue('nome')
     if (nome) {
       formRef.current.setFieldValue('nome', nome.toUpperCase())
+    }
+
+    const telefone = formRef.current.getFieldValue('telefone')
+    if (telefone) {
+      formRef.current.setFieldValue('telefone', telMask(telefone))
     }
   }, [formRef.current])
 
@@ -102,6 +101,11 @@ const PacienteDetailView: React.FC = () => {
     }
     setTimeout(() => setSaving(false), 100)
   }, [])
+
+  const handleSendToProntuário = useCallback(() => {
+    api.post(`/cadastrar-prontuario/${id}/`)
+    router.push('/painel?d=prontuarios')
+  }, [id])
   return (
     <>
       <Head>
@@ -117,11 +121,13 @@ const PacienteDetailView: React.FC = () => {
               onClick={() => setIsOpen(true)}
               icon={MdDelete}
               ref={deleteRef}
+              label="Remover"
               isDisabled={!editing}
             />
             <ButtonWithIcon
               onClick={handleEdit}
               icon={MdEdit}
+              label="Editar"
               ref={editRef}
               isActive={editing}
             />
@@ -158,6 +164,11 @@ const PacienteDetailView: React.FC = () => {
                 </AlertDialogFooter>
               </AlertDialogContent>
             </AlertDialog>
+            <ButtonWithIcon
+              onClick={handleSendToProntuário}
+              label="Gerar prontuário"
+              icon={MdSend}
+            />
           </Stack>
         </Flex>
         <Form ref={formRef} onSubmit={handleSubmit} initialData={data}>
@@ -172,6 +183,12 @@ const PacienteDetailView: React.FC = () => {
             <FormControl isRequired>
               <UnformInput
                 name="nome"
+                isLabeled
+                isDisabled={!editing}
+                onChange={handleFieldsFormat}
+              />
+              <UnformInput
+                name="telefone"
                 isLabeled
                 isDisabled={!editing}
                 onChange={handleFieldsFormat}
