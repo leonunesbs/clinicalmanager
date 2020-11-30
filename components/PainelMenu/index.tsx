@@ -79,7 +79,7 @@ const PainelMenu: React.FC<PainelMenuProps> = ({ painelMenuView }) => {
         p={1}
         pl="5%"
         d={['flex', 'none']}
-        shadow="standard"
+        shadow="md"
         backgroundColor="blue.100"
       >
         <Button

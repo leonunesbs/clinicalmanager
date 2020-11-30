@@ -15,7 +15,7 @@ const customTheme: DefaultTheme = {
   },
   shadows: {
     ...theme.shadows,
-    standard: 'rgba(0, 0, 0, 0.16) 0px 1px 4px'
+    md: 'rgba(0, 0, 0, 0.16) 0px 1px 4px'
   },
   radii: {
     ...theme.radii,

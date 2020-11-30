@@ -80,7 +80,7 @@ const HorárioBox: React.FC<HorárioProps> = ({
       borderRadius="sm"
       backgroundColor={isDisponível ? 'blue.700' : 'blue.500'}
       align="center"
-      shadow="standard"
+      shadow="md"
       justify="center"
       w="70px"
       h="100%"
@@ -119,7 +119,7 @@ const AgendaCard: React.FC<AgendaProps> = ({
       mb={2}
       backgroundColor={isDisponível ? 'blue.100' : 'blue.400'}
       p={[2, 4]}
-      shadow="standard"
+      shadow="md"
       borderRadius="sm"
     >
       <HorárioBox horário={horário} is_disponível={isDisponível} />

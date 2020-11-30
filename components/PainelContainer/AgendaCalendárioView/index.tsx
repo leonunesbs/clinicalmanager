@@ -215,7 +215,7 @@ const AgendaCalendárioView: React.FC = () => {
     const newStyle = {
       backgroundColor: theme.colors.blue[500],
       color: 'white',
-      shadow: theme.shadows.standard,
+      shadow: theme.shadows.md,
       borderRadius: theme.radii.sm
     }
 
