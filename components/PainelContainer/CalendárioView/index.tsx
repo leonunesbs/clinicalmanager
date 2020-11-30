@@ -66,7 +66,7 @@ const CalendárioView: React.FC = () => {
   const handleSelectSlot = useCallback(async ({ start, end }) => {
     const profissionalId = window.prompt('Qual o ID do profissional?')
     const localDeAtendimento = window.prompt('Qual o local do atendimento?')
-    if (profissionalId && localDeAtendimento) {
+    if (profissionalId) {
       const response = await api.post('nova-agenda/', {
         profissional: profissionalId,
         start: new Date(start),
