@@ -38,10 +38,10 @@ const PainelMenu: React.FC<PainelMenuProps> = ({ painelMenuView }) => {
       slug: ['agenda']
     },
     {
-      title: 'Agenda Calendário',
-      href: '/painel?d=agendaCalendário',
+      title: 'Calendário',
+      href: '/painel?d=calendário',
       icon: BsCalendar,
-      slug: ['agendaCalendário']
+      slug: ['calendário']
     },
     {
       title: 'Pacientes',

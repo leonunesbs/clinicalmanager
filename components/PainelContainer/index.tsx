@@ -7,7 +7,7 @@ import Custom404 from '../../pages/Custom404'
 import PacienteDetailView from './PacientesView/PacienteDetailView'
 import AgendaView from './AgendaView'
 import ProntuáriosView from './ProntuáriosView'
-import AgendaCalendárioView from './AgendaCalendárioView'
+import CalendárioView from './CalendárioView'
 
 interface PainelContainerProps {
   painelContainerView: string | string[]
@@ -35,8 +35,8 @@ const PainelContainer: React.FC<PainelContainerProps> = ({
       component: <AgendaView key={1} />
     },
     {
-      title: 'agendaCalendário',
-      component: <AgendaCalendárioView key={1} />
+      title: 'calendário',
+      component: <CalendárioView key={1} />
     },
     {
       title: 'prontuarios',
