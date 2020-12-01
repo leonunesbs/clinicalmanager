@@ -35,7 +35,7 @@ const PainelContainer: React.FC<PainelContainerProps> = ({
       component: <AgendaView key={1} />
     },
     {
-      title: 'calendário',
+      title: 'calendario',
       component: <CalendárioView key={1} />
     },
     {

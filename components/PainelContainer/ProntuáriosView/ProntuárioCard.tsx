@@ -5,7 +5,9 @@ import { Flex, Text } from '@chakra-ui/core'
 interface ProntuárioProps {
   prontuário: {
     id: number
-    paciente: string
+    paciente: {
+      nome: string
+    }
     // eslint-disable-next-line camelcase
     data_de_nascimento: string
   }
@@ -27,7 +29,7 @@ const ProntuárioCard: React.FC<ProntuárioProps> = ({ prontuário }) => {
       cursor="pointer"
     >
       <Flex justify="space-between">
-        <Text fontWeight="bold">{paciente}</Text>
+        <Text fontWeight="bold">{paciente.nome}</Text>
         <Text>ID: {id}</Text>
       </Flex>
       <Text>

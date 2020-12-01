@@ -7,7 +7,7 @@ import { Flex, Heading, Input, Stack } from '@chakra-ui/core'
 import { useFetch } from '../../../hooks/useFetch'
 import { useRouter } from 'next/router'
 import ButtonWithIcon from '../../ButtonWithIcon'
-import { MdPersonAdd, MdSearch } from 'react-icons/md'
+import { MdPersonAdd } from 'react-icons/md'
 import { Paciente } from '../PacientesView'
 import ProntuárioCard from './ProntuárioCard'
 
@@ -36,7 +36,6 @@ const Prontuários: React.FC = () => {
           {isSearching ? 'Buscar prontuário' : 'Prontuários'}
         </Heading>
         <Stack isInline>
-          <ButtonWithIcon onClick={() => setIsSearching(!isSearching)} icon={MdSearch} isActive={isSearching} />
           <ButtonWithIcon onClick={() => router.push('/painel?d=pacientes&action=novoPaciente')} icon={MdPersonAdd} />
         </Stack>
       </Flex>

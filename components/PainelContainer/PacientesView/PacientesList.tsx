@@ -10,6 +10,7 @@ import PacienteCard from './PacienteCard'
 import { useRouter } from 'next/router'
 import ButtonWithIcon from '../../ButtonWithIcon'
 import { MdPersonAdd, MdSearch } from 'react-icons/md'
+import { FaFileArchive } from 'react-icons/fa'
 
 const PacientesList: React.FC = () => {
   const router = useRouter()
@@ -38,6 +39,7 @@ const PacientesList: React.FC = () => {
         </Heading>
         <Stack isInline>
           <ButtonWithIcon onClick={() => setIsSearching(!isSearching)} icon={MdSearch} isActive={isSearching} />
+          <ButtonWithIcon onClick={() => router.push('/painel?d=prontuarios')} icon={FaFileArchive} />
           <ButtonWithIcon onClick={() => router.push('/painel?d=pacientes&action=novoPaciente')} icon={MdPersonAdd} />
         </Stack>
       </Flex>

@@ -1,6 +1,23 @@
 // eslint-disable-next-line no-use-before-define
-import React, { useCallback, useEffect, useState } from 'react'
-import { Flex, Text, Heading, theme } from '@chakra-ui/core'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
+import {
+  Flex,
+  Text,
+  Heading,
+  theme,
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  useDisclosure
+} from '@chakra-ui/core'
 
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
@@ -10,21 +27,22 @@ import 'react-big-calendar/lib/css/react-big-calendar.css'
 import { useFetch } from '../../../hooks/useFetch'
 import { api } from '../../../services/api'
 import { mutate as mutateGlobal } from 'swr'
-
-interface Event {
-  id: number
-  title: string
-  allDay?: boolean
-  desc?: string
-  start: Date
-  end: Date
-}
+import Head from 'next/head'
+import { Form } from '@unform/web'
+import UnformInput from '../../UnformInput'
+import { FormHandles, SubmitHandler } from '@unform/core'
 
 const CalendárioView: React.FC = () => {
   const now = new Date()
   const localizer = momentLocalizer(moment)
   const { data, mutate } = useFetch('listar-agendas/')
   const [agendas, setAgendas] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [e, setE] = useState<any>()
+
+  const formRef = useRef<FormHandles>(null)
+
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   useEffect(() => {
     if (data) {
@@ -52,7 +70,7 @@ const CalendárioView: React.FC = () => {
                 }
               </Flex>
               <Text fontWeight="light" fontSize="xs">
-                {`${agenda.profissional.especialidade}: ${agenda.profissional.nome}`}
+                {`${agenda.profissional?.especialidade}: ${agenda.profissional?.nome}`}
               </Text>
             </Flex>
           )
@@ -61,7 +79,6 @@ const CalendárioView: React.FC = () => {
       )
     }
   }, [data])
-  console.log(agendas)
 
   const handleSelectSlot = useCallback(async ({ start, end }) => {
     const profissionalId = window.prompt('Qual o ID do profissional?')
@@ -80,22 +97,62 @@ const CalendárioView: React.FC = () => {
     }
   }, [])
 
-  const handleSelectEvent = useCallback(async event => {
-    if (event.is_disponível) {
-      const prontuárioId = window.prompt(
-        'Digite o ID do prontuário do paciente a ser agendado'
-      )
-      if (prontuárioId) {
-        const response = await api.post('agendar-prontuario/', {
-          prontuário: prontuárioId,
-          agenda: event.id
-        })
-        if (response.ok) {
-          mutate([...agendas, response.data], false)
-          mutateGlobal('listar-agendas/', [...agendas, response.data])
+  const handleDesmarcar = useCallback(async () => {
+    const response = await api.delete(`desmarcar-agenda/${e.id}/`)
+    if (response.ok) {
+      mutate(response.data)
+      mutateGlobal('listar-agendas/', response.data)
+    }
+    onClose()
+    setE('')
+  }, [e])
+
+  const handleAgendamento: SubmitHandler<FormData> = useCallback(
+    async (data: any) => {
+      setLoading(true)
+      if (e.is_disponível) {
+        if (data.prontuárioId) {
+          const response = await api.post('agendar-prontuario/', {
+            prontuário: data.prontuárioId,
+            agenda: e.id
+          })
+          if (response.ok) {
+            mutate([...agendas, response.data], false)
+            mutateGlobal('listar-agendas/', [...agendas, response.data])
+          }
+        }
+      } else {
+        if (data.prontuárioId) {
+          const response = await api.patch(`alterar-agenda/${e.id}/`, {
+            prontuário: data.prontuárioId
+          })
+          console.log(response.data)
+          if (response.ok) {
+            mutate([...agendas, response.data], false)
+            mutateGlobal('listar-agendas/', [...agendas, response.data])
+          }
         }
       }
-    }
+      setE('')
+      onClose()
+      setLoading(false)
+    },
+    [formRef, e]
+  )
+
+  const handleSelectEvent = useCallback(
+    event => {
+      if (event.is_disponível) {
+        setE(event)
+        onOpen()
+      }
+    },
+    [formRef, e, isOpen]
+  )
+
+  const handleDoubleClickEvent = useCallback(event => {
+    setE(event)
+    onOpen()
   }, [])
 
   const handleEventPropGetter = useCallback(
@@ -126,6 +183,9 @@ const CalendárioView: React.FC = () => {
 
   return (
     <>
+      <Head>
+        <title>Calendário</title>
+      </Head>
       <Flex display="column">
         <Flex justify="space-between" mb={4}>
           <Heading as="h2" size="lg" color="blue.100">
@@ -151,6 +211,7 @@ const CalendárioView: React.FC = () => {
             max={new Date(0, 0, 0, 22, 0, 0)}
             step={15}
             timeslots={4}
+            onDoubleClickEvent={handleDoubleClickEvent}
             defaultView="day"
             defaultDate={now}
             onSelectEvent={handleSelectEvent}
@@ -177,6 +238,58 @@ const CalendárioView: React.FC = () => {
               }
             }}
           />
+          <Modal isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
+            <Form ref={formRef} onSubmit={handleAgendamento}>
+              <ModalContent backgroundColor="blue.400">
+                <ModalHeader color="blue.700">
+                  {e
+                    ? e.is_disponível
+                        ? 'Agendar prontuário'
+                        : 'Alterar agenda'
+                    : 'Agendar prontuário'}
+                </ModalHeader>
+                <ModalCloseButton borderRadius="sm" color="blue.100" />
+                <ModalBody pb={6}>
+                  <FormControl>
+                    <UnformInput name="agendaId" hidden />
+                    <UnformInput
+                      name="prontuárioId"
+                      autoFocus
+                      autoComplete="off"
+                      isLabeled
+                      label="Prontuário"
+                    />
+                  </FormControl>
+                </ModalBody>
+
+                <ModalFooter>
+                  <Flex flexGrow={1}>
+                    <Button
+                      variantColor="red"
+                      onClick={handleDesmarcar}
+                      borderRadius="sm"
+                      mr={3}
+                    >
+                      Desmarcar
+                    </Button>
+                  </Flex>
+                  <Button
+                    variantColor="blue"
+                    borderRadius="sm"
+                    type="submit"
+                    isLoading={loading}
+                    mr={3}
+                  >
+                    Agendar
+                  </Button>
+                  <Button borderRadius="sm" onClick={onClose}>
+                    Cancelar
+                  </Button>
+                </ModalFooter>
+              </ModalContent>
+            </Form>
+          </Modal>
         </Flex>
       </Flex>
     </>

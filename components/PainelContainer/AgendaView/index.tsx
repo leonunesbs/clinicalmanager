@@ -29,7 +29,9 @@ interface ProfissionalProps {
 
 interface ProntuárioProps {
   id: number
-  paciente: string
+  paciente: {
+    nome: string
+  }
   // eslint-disable-next-line camelcase
   data_de_nascimento: string
 }
@@ -134,7 +136,7 @@ const AgendaCard: React.FC<AgendaProps> = ({
             size="xs"
             as="h4"
           >
-            {isDisponível ? 'Horário disponível' : prontuário.paciente}
+            {isDisponível ? 'Horário disponível' : prontuário.paciente.nome}
           </Heading>
         </Flex>
         <Text
