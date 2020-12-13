@@ -119,7 +119,7 @@ const PainelMenu: React.FC<PainelMenuProps> = ({ painelMenuView }) => {
 
       {/* Side menu Mobile */}
       <Flex d={['flex', 'none']} flexDir="column">
-        <Stack isInline={!isExtended} justify="center" flexGrow={1} p={2}>
+        <Stack isInline={!isExtended} justify="center" flexGrow={1} m={2}>
           {menuItems.map(item => {
             const Icon = item.icon
             return (
@@ -128,6 +128,7 @@ const PainelMenu: React.FC<PainelMenuProps> = ({ painelMenuView }) => {
                 display="flex"
                 variant="solid"
                 minW={isExtended && '160px'}
+                h="45px"
                 borderRadius="sm"
                 justifyContent="flex-start"
                 backgroundColor="blue.100"
