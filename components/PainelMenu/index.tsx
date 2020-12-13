@@ -47,7 +47,7 @@ const PainelMenu: React.FC<PainelMenuProps> = ({ painelMenuView }) => {
       slug: ['prontuarios']
     }
   ]
-  const [isExtended, setIsExtended] = useState(true)
+  const [isExtended, setIsExtended] = useState(false)
 
   const checkIsActive = useCallback(
     (slug: string | string[]) => {
