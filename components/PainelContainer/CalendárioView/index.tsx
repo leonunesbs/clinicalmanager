@@ -159,7 +159,7 @@ const CalendárioView: React.FC = () => {
           borderWidth={3}
           borderRadius="md"
           backgroundColor="blue.100"
-          h="600px"
+          h="740px"
           overflowY="auto"
           display="column"
           mb={4}
