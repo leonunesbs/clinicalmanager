@@ -36,7 +36,7 @@ const Prontuários: React.FC = () => {
           {isSearching ? 'Buscar prontuário' : 'Prontuários'}
         </Heading>
         <Stack isInline>
-          <ButtonWithIcon onClick={() => router.push('/painel?d=paciente')} icon={MdPerson} />
+          <ButtonWithIcon onClick={() => router.push('/painel?d=pacientes')} icon={MdPerson} />
           <ButtonWithIcon onClick={() => router.push('/painel?d=pacientes&action=novoPaciente')} icon={MdPersonAdd} />
         </Stack>
       </Flex>
