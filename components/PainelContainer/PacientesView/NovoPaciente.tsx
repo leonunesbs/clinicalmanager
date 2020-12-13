@@ -110,9 +110,15 @@ const NovoPaciente: React.FC = () => {
                 name="cpf"
                 onChange={handleFieldsFormat}
                 isLabeled
+                label="CPF"
                 isDisabled={!editing}
               />
-              <UnformInput name="rg" isLabeled isDisabled={!editing} />
+              <UnformInput
+                name="rg"
+                isLabeled
+                label="RG"
+                isDisabled={!editing}
+              />
               <UnformInput
                 name="data_de_nascimento"
                 type="date"

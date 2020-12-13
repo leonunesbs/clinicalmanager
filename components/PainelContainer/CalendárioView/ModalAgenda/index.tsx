@@ -35,7 +35,6 @@ const ModalAgenda: React.ForwardRefRenderFunction<
 > = ({ disclosure, e, setE, agendas }, formRef) => {
   const { isOpen, onClose } = disclosure
   const [loading, setLoading] = useState(false)
-
   const handleDesmarcar = useCallback(async () => {
     const response = await api.delete(`desmarcar-agenda/${e.id}/`)
     if (response.ok) {

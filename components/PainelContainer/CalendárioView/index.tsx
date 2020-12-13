@@ -74,8 +74,8 @@ const CalendárioView: React.FC = () => {
 
   const handleSelectSlot = useCallback(async ({ start, end }) => {
     const profissionalId = window.prompt('Qual o ID do profissional?')
-    const localDeAtendimento = window.prompt('Qual o local do atendimento?')
     if (profissionalId) {
+      const localDeAtendimento = window.prompt('Qual o local do atendimento?')
       const response = await api.post('nova-agenda/', {
         profissional: profissionalId,
         start: new Date(start),
@@ -95,10 +95,18 @@ const CalendárioView: React.FC = () => {
   //   modalAgendaDisclosure.isOpen
   // ])
 
-  const handleDoubleClickEvent = useCallback(event => {
-    setE(event)
-    modalAgendaDisclosure.onOpen()
-  }, [])
+  const handleDoubleClickEvent = useCallback(() => {
+    // setE(event)
+    // modalAgendaDisclosure.onOpen()
+  }, [e, modalAgendaDisclosure])
+
+  const handleSelectEvent = useCallback(
+    event => {
+      setE(event)
+      modalAgendaDisclosure.onOpen()
+    },
+    [e, modalAgendaDisclosure]
+  )
 
   const handleEventPropGetter = useCallback(
     event => {
@@ -165,6 +173,7 @@ const CalendárioView: React.FC = () => {
             max={new Date(0, 0, 0, 22, 0, 0)}
             step={45}
             timeslots={4}
+            onSelectEvent={handleSelectEvent}
             onDoubleClickEvent={handleDoubleClickEvent}
             defaultView="day"
             defaultDate={now}
