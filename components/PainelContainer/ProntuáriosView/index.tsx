@@ -3,11 +3,11 @@
 /* eslint-disable multiline-ternary */
 // eslint-disable-next-line no-use-before-define
 import React, { useCallback, useState } from 'react'
-import { Flex, Heading, Input, Stack } from '@chakra-ui/core'
+import { Flex, Heading, Input, Skeleton, Stack } from '@chakra-ui/core'
 import { useFetch } from '../../../hooks/useFetch'
 import { useRouter } from 'next/router'
 import ButtonWithIcon from '../../ButtonWithIcon'
-import { MdPersonAdd } from 'react-icons/md'
+import { MdPerson, MdPersonAdd } from 'react-icons/md'
 import { Paciente } from '../PacientesView'
 import ProntuárioCard from './ProntuárioCard'
 
@@ -15,7 +15,7 @@ const Prontuários: React.FC = () => {
   const router = useRouter()
   const prontuários = useFetch<Paciente[]>('prontuarios/')
 
-  const [isSearching, setIsSearching] = useState(false)
+  const [isSearching] = useState(false)
   const [searchString, setSearchString] = useState('')
   const [searchData, setSearchData] = useState([])
 
@@ -36,6 +36,7 @@ const Prontuários: React.FC = () => {
           {isSearching ? 'Buscar prontuário' : 'Prontuários'}
         </Heading>
         <Stack isInline>
+          <ButtonWithIcon onClick={() => router.push('/painel?d=paciente')} icon={MdPerson} />
           <ButtonWithIcon onClick={() => router.push('/painel?d=pacientes&action=novoPaciente')} icon={MdPersonAdd} />
         </Stack>
       </Flex>
@@ -64,7 +65,7 @@ const Prontuários: React.FC = () => {
                 ))
             )
         ) : (
-          <p>Carregando</p>
+          <Skeleton h='50px'/>
           )}
       </Flex>
     </Flex>

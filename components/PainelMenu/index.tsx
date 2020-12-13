@@ -11,7 +11,7 @@ import {
   Flex,
   useDisclosure
 } from '@chakra-ui/core'
-import { MdHome, MdPerson, MdSchedule } from 'react-icons/md'
+import { MdHome, MdPerson } from 'react-icons/md'
 import { useRouter } from 'next/router'
 import { FiMenu } from 'react-icons/fi'
 import { BsCalendar } from 'react-icons/bs'
@@ -30,12 +30,6 @@ const PainelMenu: React.FC<PainelMenuProps> = ({ painelMenuView }) => {
       href: '/painel?d=home',
       icon: MdHome,
       slug: ['home']
-    },
-    {
-      title: 'Agenda',
-      href: '/painel?d=agenda',
-      icon: MdSchedule,
-      slug: ['agenda']
     },
     {
       title: 'Calendário',

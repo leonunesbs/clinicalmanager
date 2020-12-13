@@ -5,7 +5,6 @@ import PacientesView from './PacientesView'
 import HomeView from './HomeView'
 import Custom404 from '../../pages/Custom404'
 import PacienteDetailView from './PacientesView/PacienteDetailView'
-import AgendaView from './AgendaView'
 import ProntuáriosView from './ProntuáriosView'
 import CalendárioView from './CalendárioView'
 
@@ -29,10 +28,6 @@ const PainelContainer: React.FC<PainelContainerProps> = ({
     {
       title: 'paciente',
       component: <PacienteDetailView key={1} />
-    },
-    {
-      title: 'agenda',
-      component: <AgendaView key={1} />
     },
     {
       title: 'calendario',

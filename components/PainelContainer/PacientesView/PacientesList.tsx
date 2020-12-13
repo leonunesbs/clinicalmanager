@@ -3,7 +3,7 @@
 /* eslint-disable multiline-ternary */
 // eslint-disable-next-line no-use-before-define
 import React, { useCallback, useState } from 'react'
-import { Flex, Heading, Input, Stack } from '@chakra-ui/core'
+import { Button, ButtonGroup, Flex, Heading, Input, Stack } from '@chakra-ui/core'
 import { Paciente } from '.'
 import { useFetch } from '../../../hooks/useFetch'
 import PacienteCard from './PacienteCard'
@@ -11,6 +11,7 @@ import { useRouter } from 'next/router'
 import ButtonWithIcon from '../../ButtonWithIcon'
 import { MdPersonAdd, MdSearch } from 'react-icons/md'
 import { FaFileArchive } from 'react-icons/fa'
+import { cpfMask } from '../../../scripts/masks'
 
 const PacientesList: React.FC = () => {
   const router = useRouter()
@@ -19,17 +20,35 @@ const PacientesList: React.FC = () => {
 
   const [isSearching, setIsSearching] = useState(false)
   const [searchString, setSearchString] = useState('')
+  const [searchBy, setSeachBy] = useState('')
   const [searchData, setSearchData] = useState([])
 
   const handleSearch = useCallback((e) => {
     setSearchString(e.target.value)
     if (pacientes.data) {
-      setSearchData(pacientes.data.filter(pct => pct.nome.toLowerCase().includes(searchString.toLowerCase())))
+      if (searchBy === 'nome') {
+        setSearchData(pacientes.data.filter(pct => pct.nome.toLowerCase().includes(searchString.toLowerCase())))
+      }
+
+      if (searchBy === 'cpf') {
+        setSearchData(pacientes.data.filter(pct => pct.cpf.includes(cpfMask(searchString))))
+      }
     }
     if (searchString.length === 0) {
       setSearchData(pacientes.data)
     }
   }, [searchString, pacientes, searchData])
+
+  const handleSearchBy = useCallback((sBy: string) => {
+    setSeachBy(sBy)
+  }, [searchBy])
+
+  const handleSearchByActive = useCallback((sBy: string) => {
+    if (searchBy === sBy) {
+      return true
+    }
+    return false
+  }, [searchBy])
 
   return (
     <Flex display="column">
@@ -44,7 +63,15 @@ const PacientesList: React.FC = () => {
         </Stack>
       </Flex>
       <Flex display={!isSearching && 'none'} mb={10}>
-        <Input value={searchString} borderRadius='sm' onChange={handleSearch} placeholder='Digite o nome do paciente' />
+        <Flex justify='center' mb={2}>
+          <ButtonGroup>
+            <Button borderRadius='sm' onClick={() => handleSearchBy('nome')} isActive={handleSearchByActive('nome')} backgroundColor='blue.400' color='blue.100' _hover={{ backgroundColor: 'blue.700' }} _active={{ backgroundColor: 'blue.700' }}>Nome</Button>
+            <Button borderRadius='sm' onClick={() => handleSearchBy('cpf')} isActive={handleSearchByActive('cpf')} backgroundColor='blue.400' color='blue.100' _hover={{ backgroundColor: 'blue.700' }} _active={{ backgroundColor: 'blue.700' }}>CPF</Button>
+          </ButtonGroup>
+        </Flex>
+        <Flex justify='center' mb={2}>
+          <Input value={searchString} borderRadius='sm' onChange={handleSearch} maxW={['100%', '50%']} placeholder='Digite Nome ou CPF...' />
+        </Flex>
       </Flex>
       <Flex
         borderColor="blue.400"
