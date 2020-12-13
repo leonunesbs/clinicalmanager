@@ -160,8 +160,8 @@ const PainelMenu: React.FC<PainelMenuProps> = ({ painelMenuView }) => {
           justify="center"
           cursor="pointer"
           backgroundColor="blue.400"
-          borderRightColor="blue.700"
-          borderRightWidth="1px"
+          borderBottomColor="blue.700"
+          borderBottomWidth="1px"
           onClick={() => setIsExtended(!isExtended)}
         >
           <Flex
