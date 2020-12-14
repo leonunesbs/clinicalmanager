@@ -130,8 +130,8 @@ const PainelMenu: React.FC<PainelMenuProps> = ({ painelMenuView }) => {
                 minW={isExtended && '160px'}
                 borderRadius="sm"
                 p={!isExtended && '0px'}
-                w={!isExtended && '30px'}
-                h={!isExtended ? '30px' : '35px'}
+                w={!isExtended && '35px'}
+                h={!isExtended ? '35px' : '40px'}
                 justifyContent={isExtended ? 'flex-start' : 'center'}
                 backgroundColor="blue.100"
                 onClick={() => {
