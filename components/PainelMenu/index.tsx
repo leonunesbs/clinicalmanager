@@ -128,9 +128,11 @@ const PainelMenu: React.FC<PainelMenuProps> = ({ painelMenuView }) => {
                 display="flex"
                 variant="solid"
                 minW={isExtended && '160px'}
-                h="45px"
                 borderRadius="sm"
-                justifyContent="flex-start"
+                p={!isExtended && '0px'}
+                w={!isExtended && '30px'}
+                h={!isExtended ? '30px' : '35px'}
+                justifyContent={isExtended ? 'flex-start' : 'center'}
                 backgroundColor="blue.100"
                 onClick={() => {
                   router.push(item.href)
@@ -148,7 +150,7 @@ const PainelMenu: React.FC<PainelMenuProps> = ({ painelMenuView }) => {
                     <Text ml={4}>{item.title}</Text>
                   </>
                 ) : (
-                  <Icon size={18} />
+                  <Icon size={12} />
                 )}
               </Button>
             )
@@ -156,10 +158,10 @@ const PainelMenu: React.FC<PainelMenuProps> = ({ painelMenuView }) => {
         </Stack>
         <Flex
           align="center"
-          shadow="md"
           justify="center"
           cursor="pointer"
           backgroundColor="blue.400"
+          maxH="15px"
           borderBottomColor="blue.700"
           borderBottomWidth="1px"
           onClick={() => setIsExtended(!isExtended)}
