@@ -65,7 +65,7 @@ const PainelMenu: React.FC<PainelMenuProps> = ({ painelMenuView }) => {
     <>
       {/* Side menu Desktop */}
       <Flex d={['none', 'flex']}>
-        <Stack flexGrow={1} p={2}>
+        <Stack flexGrow={1} p={2} justify="center">
           {menuItems.map(item => {
             const Icon = item.icon
             return (
