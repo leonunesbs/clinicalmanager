@@ -62,7 +62,8 @@ const PainelContainer: React.FC<PainelContainerProps> = ({
       h="100%"
       overflow="auto"
       backgroundColor="blue.500"
-      padding={6}
+      py={6}
+      px={[2, 4]}
     >
       {componentToRender}
     </Flex>
