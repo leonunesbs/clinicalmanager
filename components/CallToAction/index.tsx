@@ -11,7 +11,7 @@ const CallToAction: React.FC = () => {
       flexDir="column"
       flexGrow={1}
       h="500px"
-      backgroundImage={`url("${require('../../public/images/ctaBackground.jpg?webp')}")`}
+      backgroundImage="../../public/images/ctaBackground.jpg?webp"
       backgroundSize="cover"
       justify="center"
       overflow="hidden"
