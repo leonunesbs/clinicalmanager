@@ -6,6 +6,7 @@ interface CustomButtomProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   icon: any
   label?: string
+  alt?: string
   rightText?: string
   isActive?: boolean
   isDisabled?: boolean
@@ -26,6 +27,7 @@ const ButtonWithIcon: React.ForwardRefRenderFunction<
     >
       <Button
         ref={ref}
+        aria-label={label}
         borderColor="blue.400"
         borderWidth="2px"
         borderRadius="sm"

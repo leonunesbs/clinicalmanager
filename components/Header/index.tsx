@@ -55,8 +55,11 @@ const Header: React.FC = () => {
     <>
       <HeaderBG>
         <Button
+          as="div"
+          aria-label="Menu"
           borderRadius="sm"
           backgroundColor=""
+          p="0px"
           color={'blue.100'}
           _hover={{
             color: 'blue.400'
@@ -93,11 +96,12 @@ const Header: React.FC = () => {
         </Drawer>
         <Flex>
           <Image
-            src="/images/logo.svg"
+            src="/images/logo.svg?include?trace?sprite"
             cursor="pointer"
             alt="logo"
             alignSelf="center"
-            maxHeight="34px"
+            w="40px"
+            h="40px"
           />
         </Flex>
 
@@ -130,7 +134,7 @@ const Header: React.FC = () => {
             p={2}
             minW="130px"
             key={item.title}
-            color="blue.500"
+            color="blue.700"
             borderRadius="sm"
             _hover={{ backgroundColor: 'blue.100' }}
             _active={{ backgroundColor: 'blue.400', color: 'blue.100' }}

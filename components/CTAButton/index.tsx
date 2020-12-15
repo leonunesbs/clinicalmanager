@@ -16,7 +16,7 @@ const CTAButotn: React.FC<CustomButtonProps> = ({
     <PseudoBox
       as="button"
       h="40px"
-      backgroundColor="blue.400"
+      backgroundColor="blue.700"
       borderRadius="sm"
       color="blue.100"
       fontWeight="thin"

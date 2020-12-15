@@ -15,7 +15,7 @@ const MenuItem: React.FC<CustomProps> = ({ children, href, w }) => {
         mx={4}
         my={2}
         w={w || '140px'}
-        color="blue.500"
+        color="blue.700"
         style={{ textDecoration: 'none' }}
         p={2}
         borderWidth={2}

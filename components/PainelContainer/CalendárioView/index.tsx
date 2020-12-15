@@ -147,6 +147,10 @@ const CalendárioView: React.FC = () => {
     <>
       <Head>
         <title>Calendário - Clínical Manager</title>
+        <meta
+          name="description"
+          content="Calendário de consultas - Clinical Manager"
+        />
       </Head>
       <Flex display="column">
         <Flex justify="space-between" mb={4}>

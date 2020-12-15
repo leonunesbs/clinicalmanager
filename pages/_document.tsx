@@ -9,7 +9,7 @@ import Document, {
   DocumentProps
 } from 'next/document'
 import GlobalStyle from '../styles/GlobalStyle'
-import { GA_TRACKING_ID } from '../services/gtag'
+// import { GA_TRACKING_ID } from '../services/gtag'
 
 class MyDocument extends Document<DocumentProps> {
   render(): JSX.Element {
@@ -19,7 +19,7 @@ class MyDocument extends Document<DocumentProps> {
           <meta httpEquiv="X-UA-Compatible" content="IE-edge" />
 
           {/* Global Site Tag (gtag.js) - Google Analytics */}
-          {process.env.NODE_ENV === 'production' && (
+          {/* {process.env.NODE_ENV === 'production' && (
             <>
               <script
                 async
@@ -38,7 +38,7 @@ class MyDocument extends Document<DocumentProps> {
                 }}
               />
             </>
-          )}
+          )} */}
           <meta
             name="google-site-verification"
             content="wisnFadn82Ndz9TMStMgCiRpbFSgVe4WmNl-kJHc1Uo"

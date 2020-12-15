@@ -33,6 +33,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
         icon={FiMenu}
         rightText={rightText && rightText}
         onClick={onOpen}
+        aria-
       />
       <Drawer
         isOpen={isOpen}

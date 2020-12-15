@@ -125,6 +125,7 @@ const PainelMenu: React.FC<PainelMenuProps> = ({ painelMenuView }) => {
             return (
               <Button
                 key={item.title}
+                aria-label={item.title}
                 display="flex"
                 variant="solid"
                 minW={isExtended && '160px'}

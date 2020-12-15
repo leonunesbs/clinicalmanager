@@ -52,6 +52,10 @@ const PacientesView: React.FC = () => {
     <>
       <Head>
         <title>Pacientes - Clinical Manager</title>
+        <meta
+          name="description"
+          content="Lista de pacientes - Clinical Manager"
+        />
       </Head>
       <>{componentToRender}</>
     </>
