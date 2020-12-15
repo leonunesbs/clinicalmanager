@@ -5,6 +5,7 @@ import { AppProps, NextWebVitalsMetric } from 'next/app'
 import { useRouter } from 'next/router'
 import ThemeContainer from '../contexts/theme/ThemeContainer'
 import * as gtag from '../services/gtag'
+import Head from 'next/head'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const reportWebVitals: any = ({
@@ -55,6 +56,12 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   }, [])
   return (
     <ThemeContainer>
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"
+        />
+      </Head>
       <Component {...pageProps} />
     </ThemeContainer>
   )
