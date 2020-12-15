@@ -1,16 +1,6 @@
 // next.config.js
-const withPWA = require('next-pwa')
-
 const withPlugins = require('next-compose-plugins');
 const optimizedImages = require('next-optimized-images');
-
-
-module.exports = withPWA({
-  pwa: {
-    dest: 'public',
-    buildExcludes: ['/chunks\/images\/.*$/']
-  }
-})
 
 
 module.exports = withPlugins([

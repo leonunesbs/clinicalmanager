@@ -93,7 +93,7 @@ const Header: React.FC = () => {
         </Drawer>
         <Flex>
           <Image
-            src="../../public/images/logo.svg"
+            src={require('../../public/images/logo.svg')}
             cursor="pointer"
             alt="logo"
             alignSelf="center"

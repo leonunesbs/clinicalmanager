@@ -11,7 +11,7 @@ const PainelHeader: React.FC = () => {
       <Image
         cursor="pointer"
         maxHeight="70%"
-        src="../../public/images/logo.svg"
+        src={require('../../public/images/logo.svg')}
         mr={6}
         onClick={() => router.push('/')}
       />
