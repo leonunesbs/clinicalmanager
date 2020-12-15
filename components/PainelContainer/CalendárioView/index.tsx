@@ -36,6 +36,19 @@ const CalendárioView: React.FC = () => {
 
   const modalAgendaDisclosure: UseDisclosureReturn = useDisclosure()
 
+  if (!data) {
+    return (
+      <Flex display="column">
+        <Flex justify="space-between" mb={4}>
+          <Heading as="h2" size="lg" color="blue.100">
+            Calendário
+          </Heading>
+          <Skeleton h="500px" />
+        </Flex>
+      </Flex>
+    )
+  }
+
   useEffect(() => {
     if (data) {
       setAgendas(
@@ -129,19 +142,6 @@ const CalendárioView: React.FC = () => {
     },
     [agendas]
   )
-
-  if (!data) {
-    return (
-      <Flex display="column">
-        <Flex justify="space-between" mb={4}>
-          <Heading as="h2" size="lg" color="blue.100">
-            Calendário
-          </Heading>
-          <Skeleton h="500px" />
-        </Flex>
-      </Flex>
-    )
-  }
 
   return (
     <>
