@@ -137,8 +137,8 @@ const CalendárioView: React.FC = () => {
           <Heading as="h2" size="lg" color="blue.100">
             Calendário
           </Heading>
-          <Skeleton h="500px" />
         </Flex>
+        <Skeleton h="500px" />
       </Flex>
     )
   }
