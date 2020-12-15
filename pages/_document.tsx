@@ -16,6 +16,8 @@ class MyDocument extends Document<DocumentProps> {
     return (
       <Html lang="pt-br">
         <Head>
+          <meta httpEquiv="X-UA-Compatible" content="IE-edge" />
+
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           {process.env.NODE_ENV === 'production' && (
             <>
@@ -41,6 +43,7 @@ class MyDocument extends Document<DocumentProps> {
             name="google-site-verification"
             content="wisnFadn82Ndz9TMStMgCiRpbFSgVe4WmNl-kJHc1Uo"
           />
+
           <link
             rel="apple-touch-icon"
             sizes="180x180"
