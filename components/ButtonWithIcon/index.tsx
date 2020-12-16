@@ -32,7 +32,7 @@ const ButtonWithIcon: React.ForwardRefRenderFunction<
         borderWidth="2px"
         borderRadius="sm"
         variant="outline"
-        color={'blue.100'}
+        color="blue.100"
         _hover={{ backgroundColor: 'blue.400' }}
         _active={{ backgroundColor: 'blue.100', color: 'blue.700' }}
         w={rightText ? '90px' : '35px'}
@@ -43,7 +43,7 @@ const ButtonWithIcon: React.ForwardRefRenderFunction<
         p={1}
         {...rest}
       >
-        <Flex as={icon} size="2xs" />
+        <Flex as={icon} />
         {rightText && (
           <Text fontWeight="light" ml={1}>
             {rightText}
