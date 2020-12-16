@@ -216,7 +216,7 @@ const PacienteDetailView: React.FC = () => {
               color="blue.700"
               w={['50%', '']}
               size="lg"
-              leftIcon={MdKeyboardArrowLeft}
+              leftIcon={<MdKeyboardArrowLeft />}
               backgroundColor="blue.100"
               _hover={{ color: 'blue.700', backgroundColor: 'blue.400' }}
               onClick={() => router.back()}
@@ -234,7 +234,7 @@ const PacienteDetailView: React.FC = () => {
               size="lg"
               backgroundColor="blue.700"
               _hover={{ color: 'blue.700', backgroundColor: 'blue.400' }}
-              rightIcon={saved ? MdCheck : MdSave}
+              rightIcon={saved ? <MdCheck /> : <MdSave />}
             >
               {saved ? 'Salvo' : 'Salvar'}
             </Button>

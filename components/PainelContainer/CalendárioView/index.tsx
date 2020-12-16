@@ -9,6 +9,7 @@ import {
   Heading,
   theme,
   useDisclosure,
+  UseDisclosureProps,
   Skeleton
 } from '@chakra-ui/react'
 
@@ -23,7 +24,6 @@ import { mutate as mutateGlobal } from 'swr'
 import Head from 'next/head'
 import { FormHandles } from '@unform/core'
 import ModalAgenda from './ModalAgenda'
-import { UseDisclosureReturn } from '@chakra-ui/core/dist/useDisclosure'
 
 const CalendárioView: React.FC = () => {
   const now = new Date()
@@ -34,7 +34,7 @@ const CalendárioView: React.FC = () => {
 
   const formRef = useRef<FormHandles>(null)
 
-  const modalAgendaDisclosure: UseDisclosureReturn = useDisclosure()
+  const modalAgendaDisclosure: UseDisclosureProps = useDisclosure()
 
   useEffect(() => {
     if (data) {

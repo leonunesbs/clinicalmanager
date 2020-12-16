@@ -13,17 +13,17 @@ import {
   FormControl,
   ModalFooter,
   Flex,
-  Button
+  Button,
+  UseDisclosureProps
 } from '@chakra-ui/react'
 import { Form } from '@unform/web'
 import UnformInput from '../../../UnformInput'
-import { UseDisclosureReturn } from '@chakra-ui/core/dist/useDisclosure'
 import { FormHandles, SubmitHandler } from '@unform/core'
 import { mutate as mutateGlobal } from 'swr'
 import { api } from '../../../../services/api'
 
 interface ModalAgendaProps {
-  disclosure: UseDisclosureReturn
+  disclosure: UseDisclosureProps
   e: any
   setE: React.Dispatch<any>
   agendas: any
