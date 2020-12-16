@@ -31,7 +31,7 @@ const ButtonWithIcon: React.ForwardRefRenderFunction<
         borderColor="blue.400"
         borderWidth="2px"
         borderRadius="sm"
-        backgroundColor="rgb(0,0,0,0)"
+        variant="outline"
         color={'blue.100'}
         _hover={{ backgroundColor: 'blue.400' }}
         _active={{ backgroundColor: 'blue.100', color: 'blue.700' }}
