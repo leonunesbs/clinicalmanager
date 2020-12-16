@@ -55,6 +55,7 @@ const Header: React.FC = () => {
     <>
       <HeaderBG>
         <Button
+          justifySelf="flex-start"
           as="div"
           aria-label="Menu"
           borderRadius="sm"
@@ -96,18 +97,22 @@ const Header: React.FC = () => {
             </DrawerContent>
           </DrawerOverlay>
         </Drawer>
-        <Flex>
-          <Image
-            src="/images/logo.svg?include?trace?sprite"
-            cursor="pointer"
-            alt="logo"
-            alignSelf="center"
-            w="40px"
-            h="40px"
-          />
-        </Flex>
+
+        <Image
+          position={['relative', 'absolute']}
+          left="0"
+          right="0"
+          mx={['initial', 'auto']}
+          src="/images/logo.svg?include?trace?sprite"
+          cursor="pointer"
+          alt="logo"
+          alignSelf="center"
+          w="40px"
+          h="40px"
+        />
 
         <Text
+          justifySelf="self-end"
           display={['none', 'inline']}
           textAlign="right"
           color="blue.100"
