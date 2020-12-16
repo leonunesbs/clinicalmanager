@@ -7,7 +7,7 @@ import { Button, ButtonGroup, Flex, Heading, Input, Skeleton, Stack } from '@cha
 import { useFetch } from '../../../hooks/useFetch'
 import { useRouter } from 'next/router'
 import ButtonWithIcon from '../../ButtonWithIcon'
-import { MdPerson, MdPersonAdd, MdSearch } from 'react-icons/md'
+import { MdPerson, MdSearch } from 'react-icons/md'
 import { Paciente } from '../PacientesView'
 import ProntuárioCard from './ProntuárioCard'
 import { cpfMask } from '../../../scripts/masks'
@@ -55,9 +55,8 @@ const Prontuários: React.FC = () => {
           {isSearching ? 'Buscar prontuário' : 'Prontuários'}
         </Heading>
         <Stack isInline>
-        <ButtonWithIcon onClick={() => setIsSearching(!isSearching)} icon={MdSearch} isActive={isSearching} />
-          <ButtonWithIcon onClick={() => router.push('/painel?d=pacientes')} icon={MdPerson} />
-          <ButtonWithIcon onClick={() => router.push('/painel?d=pacientes&action=novoPaciente')} icon={MdPersonAdd} />
+        <ButtonWithIcon label='Buscar'onClick={() => setIsSearching(!isSearching)} icon={MdSearch} isActive={isSearching} />
+          <ButtonWithIcon label='Pacientes'onClick={() => router.push('/painel?d=pacientes')} icon={MdPerson} />
         </Stack>
       </Flex>
       <Flex display={!isSearching && 'none'} mb={10}>

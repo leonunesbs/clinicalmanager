@@ -57,9 +57,9 @@ const PacientesList: React.FC = () => {
           {isSearching ? 'Buscar paciente' : 'Pacientes'}
         </Heading>
         <Stack isInline>
-          <ButtonWithIcon onClick={() => setIsSearching(!isSearching)} icon={MdSearch} isActive={isSearching} />
-          <ButtonWithIcon onClick={() => router.push('/painel?d=prontuarios')} icon={FaFileArchive} />
-          <ButtonWithIcon onClick={() => router.push('/painel?d=pacientes&action=novoPaciente')} icon={MdPersonAdd} />
+          <ButtonWithIcon label='Buscar' onClick={() => setIsSearching(!isSearching)} icon={MdSearch} isActive={isSearching} />
+          <ButtonWithIcon label='Prontuários' onClick={() => router.push('/painel?d=prontuarios')} icon={FaFileArchive} />
+          <ButtonWithIcon label='Novo paciente' onClick={() => router.push('/painel?d=pacientes&action=novoPaciente')} icon={MdPersonAdd} />
         </Stack>
       </Flex>
       <Flex display={!isSearching && 'none'} mb={10}>
