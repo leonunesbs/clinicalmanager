@@ -196,10 +196,16 @@ const PacienteDetailView: React.FC = () => {
               <UnformInput
                 name="cpf"
                 isLabeled
+                label="CPF"
                 isDisabled={!editing}
                 onChange={handleFieldsFormat}
               />
-              <UnformInput name="rg" isLabeled isDisabled={!editing} />
+              <UnformInput
+                name="rg"
+                label="RG"
+                isLabeled
+                isDisabled={!editing}
+              />
               <UnformInput
                 name="data_de_nascimento"
                 type="date"

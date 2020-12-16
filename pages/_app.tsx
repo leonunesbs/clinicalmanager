@@ -2,9 +2,8 @@
 import React, { useEffect } from 'react'
 
 import { AppProps } from 'next/app'
-import { useRouter } from 'next/router'
 import ThemeContainer from '../contexts/theme/ThemeContainer'
-import * as gtag from '../services/gtag'
+// import * as gtag from '../services/gtag'
 import Head from 'next/head'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
