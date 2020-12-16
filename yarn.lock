@@ -8850,11 +8850,6 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-next-keep-alive@^1.0.13:
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/react-next-keep-alive/-/react-next-keep-alive-1.0.13.tgz#f12b6e8e1486fb1ada6e153ec41c551d54dc8fec"
-  integrity sha512-ZJUMxjMmHcn/gFpPsTqbeGgbcbMV8mKiYR1F1YSgj3yOovMKGv1hyh4G8UXqn5jSXS8bjFWekEVLKSwbBucfgQ==
-
 react-overlays@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/react-overlays/-/react-overlays-4.1.1.tgz#0060107cbe1c5171a744ccda3fbf0556d064bc5f"

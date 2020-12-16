@@ -5,7 +5,6 @@ import Head from 'next/head'
 import Header from '../components/Header'
 import CallToAction from '../components/CallToAction'
 import { Flex } from '@chakra-ui/react'
-import { withKeepAlive } from 'react-next-keep-alive'
 
 const Home: React.FC = () => {
   return (
@@ -30,4 +29,4 @@ const Home: React.FC = () => {
   )
 }
 
-export default withKeepAlive(Home, 'Home')
+export default Home

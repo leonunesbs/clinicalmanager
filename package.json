@@ -28,7 +28,6 @@
     "react-big-calendar": "^0.29.0",
     "react-dom": "17.0.1",
     "react-icons": "^3.11.0",
-    "react-next-keep-alive": "^1.0.13",
     "sharp": "^0.26.2",
     "styled-components": "^5.2.1",
     "swr": "^0.3.8",
