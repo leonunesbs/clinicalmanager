@@ -3,8 +3,10 @@ import React, { useEffect } from 'react'
 
 import { AppProps } from 'next/app'
 import ThemeContainer from '../contexts/theme/ThemeContainer'
+import { KeepAliveProvider } from 'react-next-keep-alive'
 // import * as gtag from '../services/gtag'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 // export const reportWebVitals: any = ({
@@ -24,7 +26,7 @@ import Head from 'next/head'
 // }
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
-  // const router = useRouter()
+  const router = useRouter()
 
   // useEffect(() => {
   //   const handleRouteChange = (url: URL) => {
@@ -55,15 +57,17 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     }
   }, [])
   return (
-    <ThemeContainer>
-      <Head>
-        <meta
-          name="viewport"
-          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5"
-        />
-      </Head>
-      <Component {...pageProps} />
-    </ThemeContainer>
+    <KeepAliveProvider router={router}>
+      <ThemeContainer>
+        <Head>
+          <meta
+            name="viewport"
+            content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5"
+          />
+        </Head>
+        <Component {...pageProps} />
+      </ThemeContainer>
+    </KeepAliveProvider>
   )
 }
 
