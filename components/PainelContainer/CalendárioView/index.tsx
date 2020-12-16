@@ -10,7 +10,7 @@ import {
   theme,
   useDisclosure,
   Skeleton
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
 
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'

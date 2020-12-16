@@ -1,6 +1,6 @@
 /* eslint-disable no-use-before-define */
 import Link from 'next/link'
-import { Link as ChakraLink, Text, Button, Box } from '@chakra-ui/core'
+import { Link as ChakraLink, Text, Button, Box } from '@chakra-ui/react'
 import React, { useCallback } from 'react'
 import { mutate as mutateGlobal } from 'swr'
 import { useFetch } from '../hooks/useFetch'

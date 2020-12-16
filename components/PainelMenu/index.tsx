@@ -1,7 +1,7 @@
 /* eslint-disable multiline-ternary */
 // eslint-disable-next-line no-use-before-define
 import React, { useCallback, useState } from 'react'
-import { Button, Flex, Stack, Text } from '@chakra-ui/core'
+import { Button, Flex, Stack, Text } from '@chakra-ui/react'
 import { MdHome, MdPerson } from 'react-icons/md'
 import {
   BsChevronCompactRight,

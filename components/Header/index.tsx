@@ -13,7 +13,7 @@ import {
   Button,
   Box,
   Stack
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
 import HeaderBG from './HeaderBG'
 import { FiMenu } from 'react-icons/fi'
 import MenuItem from './MenuItem'
@@ -58,8 +58,10 @@ const Header: React.FC = () => {
           as="div"
           aria-label="Menu"
           borderRadius="sm"
-          backgroundColor=""
-          p="0px"
+          backgroundColor="rgb(0,0,0,0.3)"
+          w="30px"
+          h="30px"
+          p="5px"
           color={'blue.100'}
           _hover={{
             color: 'blue.400'
@@ -68,7 +70,7 @@ const Header: React.FC = () => {
           textAlign="center"
           onClick={onOpen}
         >
-          <Box as={FiMenu} size="2xs" />
+          <Box as={FiMenu} h="100%" w="100%" />
         </Button>
         <Drawer
           isOpen={isOpen}

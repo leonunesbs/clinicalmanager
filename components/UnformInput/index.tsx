@@ -6,7 +6,7 @@ import {
   FormControl,
   FormLabel,
   FormHelperText
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
 import { useField } from '@unform/core'
 
 interface CustomInputProps extends InputProps {

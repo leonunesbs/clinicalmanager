@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react'
-import { Image, Heading } from '@chakra-ui/core'
+import { Image, Heading } from '@chakra-ui/react'
 import HeaderBG from '../Header/HeaderBG'
 import { useRouter } from 'next/router'
 

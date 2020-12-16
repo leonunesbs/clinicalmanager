@@ -1,6 +1,6 @@
 /* eslint-disable no-use-before-define */
 import React, { forwardRef } from 'react'
-import { Button, Flex, Text, Tooltip } from '@chakra-ui/core'
+import { Button, Flex, Text, Tooltip } from '@chakra-ui/react'
 
 interface CustomButtomProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -31,7 +31,7 @@ const ButtonWithIcon: React.ForwardRefRenderFunction<
         borderColor="blue.400"
         borderWidth="2px"
         borderRadius="sm"
-        backgroundColor=""
+        backgroundColor="rgb(0,0,0,0)"
         color={'blue.100'}
         _hover={{ backgroundColor: 'blue.400' }}
         _active={{ backgroundColor: 'blue.100', color: 'blue.700' }}

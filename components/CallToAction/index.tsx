@@ -1,6 +1,6 @@
 /* eslint-disable no-use-before-define */
 import React from 'react'
-import { Flex, Heading } from '@chakra-ui/core'
+import { Flex, Heading } from '@chakra-ui/react'
 import CTAButotn from '../CTAButton'
 import { useRouter } from 'next/dist/client/router'
 

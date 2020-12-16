@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-use-before-define
 import React, { useCallback, useEffect, useState } from 'react'
-import { Box, Button, Flex, Skeleton } from '@chakra-ui/core'
+import { Box, Button, Flex, Skeleton } from '@chakra-ui/react'
 
 const teste: React.FC = () => {
   const [script, setScript] = useState(null)

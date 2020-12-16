@@ -4,7 +4,7 @@ import React from 'react'
 import Head from 'next/head'
 import Header from '../components/Header'
 import CallToAction from '../components/CallToAction'
-import { Flex } from '@chakra-ui/core'
+import { Flex } from '@chakra-ui/react'
 
 const Home: React.FC = () => {
   return (

@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
 import React from 'react'
 import Link, { LinkProps } from 'next/link'
-import { Link as ChakraLink } from '@chakra-ui/core'
+import { Link as ChakraLink } from '@chakra-ui/react'
 
 // import { Container } from './styles';
 interface CustomProps extends LinkProps {

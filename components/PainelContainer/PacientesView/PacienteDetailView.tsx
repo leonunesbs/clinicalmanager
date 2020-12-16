@@ -15,7 +15,7 @@ import {
   FormControl,
   Heading,
   Stack
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
 import { SubmitHandler, FormHandles } from '@unform/core'
 import { Form } from '@unform/web'
 import UnformInput from '../../UnformInput'

@@ -1,5 +1,5 @@
 /* eslint-disable no-use-before-define */
-import { ButtonProps, PseudoBox } from '@chakra-ui/core'
+import { ButtonProps, Button } from '@chakra-ui/react'
 import React from 'react'
 
 interface CustomButtonProps extends ButtonProps {
@@ -13,13 +13,11 @@ const CTAButotn: React.FC<CustomButtonProps> = ({
   ...rest
 }) => {
   return (
-    <PseudoBox
-      as="button"
+    <Button
       h="40px"
       backgroundColor="blue.700"
       borderRadius="sm"
       color="blue.100"
-      fontWeight="thin"
       w={isBlock ? '100%' : '300px'}
       minW="150px"
       _active={{
@@ -30,7 +28,7 @@ const CTAButotn: React.FC<CustomButtonProps> = ({
       {...rest}
     >
       {children}
-    </PseudoBox>
+    </Button>
   )
 }
 

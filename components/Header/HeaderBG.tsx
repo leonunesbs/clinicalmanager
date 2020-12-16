@@ -1,6 +1,6 @@
 /* eslint-disable no-use-before-define */
 import React from 'react'
-import { Flex, FlexProps } from '@chakra-ui/core'
+import { Flex, FlexProps } from '@chakra-ui/react'
 
 interface CustomProps extends FlexProps {
   href?: string

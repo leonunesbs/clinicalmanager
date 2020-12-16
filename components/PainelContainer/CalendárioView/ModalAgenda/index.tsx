@@ -14,7 +14,7 @@ import {
   ModalFooter,
   Flex,
   Button
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
 import { Form } from '@unform/web'
 import UnformInput from '../../../UnformInput'
 import { UseDisclosureReturn } from '@chakra-ui/core/dist/useDisclosure'

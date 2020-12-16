@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-use-before-define
 import React, { useEffect, useState } from 'react'
-import { Flex } from '@chakra-ui/core'
+import { Flex } from '@chakra-ui/react'
 import PacientesView from './PacientesView'
 import HomeView from './HomeView'
 import Custom404 from '../../pages/Custom404'

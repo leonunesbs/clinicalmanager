@@ -2,7 +2,7 @@
 import React, { useCallback, useRef, useState } from 'react'
 import { Form } from '@unform/web'
 import UnformInput from '../../UnformInput'
-import { Button, Flex, FormControl, Heading, Stack } from '@chakra-ui/core'
+import { Button, Flex, FormControl, Heading, Stack } from '@chakra-ui/react'
 import { FormHandles, SubmitHandler } from '@unform/core'
 import { Paciente } from '.'
 import Head from 'next/head'

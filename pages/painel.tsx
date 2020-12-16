@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-use-before-define
 import React, { useEffect, useState } from 'react'
-import { Flex } from '@chakra-ui/core'
+import { Flex } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import PainelContainer from '../components/PainelContainer'
 import PainelHeader from '../components/PainelHeader'

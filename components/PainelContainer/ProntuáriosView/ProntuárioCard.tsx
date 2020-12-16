@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react'
-import { Flex, Text } from '@chakra-ui/core'
+import { Flex, Text } from '@chakra-ui/react'
 
 interface ProntuárioProps {
   prontuário: {

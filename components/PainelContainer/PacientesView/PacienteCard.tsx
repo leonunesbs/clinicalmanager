@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-use-before-define
 import React, { useState } from 'react'
-import { Flex, Skeleton, Text } from '@chakra-ui/core'
+import { Flex, Skeleton, Text } from '@chakra-ui/react'
 import { Paciente } from '.'
 import { useRouter } from 'next/router'
 

@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react'
-import { Flex, Heading } from '@chakra-ui/core'
+import { Flex, Heading } from '@chakra-ui/react'
 import Head from 'next/head'
 
 const HomeView: React.FC = () => {

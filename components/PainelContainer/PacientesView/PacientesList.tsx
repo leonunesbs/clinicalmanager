@@ -3,7 +3,7 @@
 /* eslint-disable multiline-ternary */
 // eslint-disable-next-line no-use-before-define
 import React, { useCallback, useState } from 'react'
-import { Button, ButtonGroup, Flex, Heading, Input, Stack } from '@chakra-ui/core'
+import { Button, ButtonGroup, Flex, Heading, Input, Stack } from '@chakra-ui/react'
 import { Paciente } from '.'
 import { useFetch } from '../../../hooks/useFetch'
 import PacienteCard from './PacienteCard'

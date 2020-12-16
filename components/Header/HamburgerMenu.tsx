@@ -9,7 +9,7 @@ import {
   Flex,
   Text,
   useDisclosure
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
 import { MenuItemsProps } from '.'
 import MenuItem from './MenuItem'
 import ButtonWithIcon from '../ButtonWithIcon'
