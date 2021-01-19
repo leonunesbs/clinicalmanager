@@ -153,7 +153,7 @@ const Manager: React.FC = () => {
                     borderRadius="sm"
                     p={2}
                     _active={{ backgroundColor: 'blue.500' }}
-                    _hover={{ backgroundColor: 'blue.800' }}
+                    _hover={{ backgroundColor: 'blue.900' }}
                   >
                     <Flex w="100%" justify="space-between" wrap="wrap">
                       <Text

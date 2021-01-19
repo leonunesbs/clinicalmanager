@@ -65,7 +65,7 @@ const Unidade: React.FC = () => {
               p={2}
               isActive={unidadeIdSelecionada === 1}
               _active={{ backgroundColor: 'blue.500' }}
-              _hover={{ backgroundColor: 'blue.800' }}
+              _hover={{ backgroundColor: 'blue.900' }}
               onClick={() => setUnidadeIdSelecionada(1)}
             >
               <Text
@@ -88,7 +88,7 @@ const Unidade: React.FC = () => {
               p={2}
               isActive={unidadeIdSelecionada === 2}
               _active={{ backgroundColor: 'blue.500' }}
-              _hover={{ backgroundColor: 'blue.800' }}
+              _hover={{ backgroundColor: 'blue.900' }}
               onClick={() => setUnidadeIdSelecionada(2)}
               mb={2}
             >
