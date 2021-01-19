@@ -34,7 +34,8 @@ const Unidade: React.FC = () => {
           <Stack
             flexDir="column"
             shadow="lg"
-            minW="455px"
+            w="100%"
+            maxW="455px"
             border="2px solid rgba(228, 242, 241, 0.45)"
             borderRadius="md"
             backgroundColor="blue.800"
@@ -44,7 +45,12 @@ const Unidade: React.FC = () => {
             py="30px"
             m="5px"
           >
-            <Heading color="blue.100" fontWeight="normal">
+            <Heading
+              color="blue.100"
+              textAlign="center"
+              size="lg"
+              fontWeight="normal"
+            >
               Selecione uma unidade
             </Heading>
             <Flex w="80%" h="1px" backgroundColor="blue.100" my="5px" />

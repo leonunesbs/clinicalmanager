@@ -32,7 +32,8 @@ const Login: React.FC = () => {
         >
           <Stack
             flexDir="column"
-            minW="455px"
+            w="100%"
+            maxW="455px"
             shadow="lg"
             border="2px solid rgba(228, 242, 241, 0.45)"
             borderRadius="md"
@@ -43,7 +44,7 @@ const Login: React.FC = () => {
             py="30px"
             m="5px"
           >
-            <Heading color="blue.100" fontWeight="normal">
+            <Heading color="blue.100" size="lg" fontWeight="normal">
               Login
             </Heading>
             <Flex w="80%" h="1px" backgroundColor="blue.100" my="5px" />
