@@ -1,22 +1,42 @@
 /* eslint-disable no-use-before-define */
-import React, { useRef } from 'react'
-import { Flex, Heading, Link, Stack } from '@chakra-ui/react'
+import React, { useRef, useState } from 'react'
+import { Flex, FormControl, Heading, Link, Stack } from '@chakra-ui/react'
 import { Form } from '@unform/web'
 import { FormHandles, SubmitHandler } from '@unform/core'
 import DarkInput from '../components/DarkInput'
 import DarkButton from '../components/DarkButton'
 import Head from 'next/head'
+import api from '../services/api'
+import { useRouter } from 'next/router'
 
 interface FormData {
-  name: string
-  email: string
+  usuário: string
+  senha: string
+}
+
+interface AuthData {
+  ok?: boolean
+  data?: {
+    token?: string
+  }
 }
 
 const Login: React.FC = () => {
+  const router = useRouter()
+  const [loading, setLoading] = useState(false)
+
   const formRef = useRef<FormHandles>(null)
-  const handleSubmit: SubmitHandler<FormData> = data => {
-    console.log(formRef)
-    console.log(data)
+  const handleSubmit: SubmitHandler<FormData> = async data => {
+    setLoading(true)
+    const response: AuthData = await api.post('autenticar/', {
+      usuário: data.usuário,
+      senha: data.senha
+    })
+    if (response.ok) {
+      localStorage.setItem('@clinicalManager:Token', response.data.token)
+      router.push('unidades/')
+    }
+    setLoading(false)
   }
   return (
     <>
@@ -48,14 +68,20 @@ const Login: React.FC = () => {
               Login
             </Heading>
             <Flex w="80%" h="1px" backgroundColor="blue.100" my="5px" />
-            <DarkInput name="usuário" placeholder="Usuário" />
-            <DarkInput
-              name="senha"
-              type="password"
-              placeholder="Senha"
-              mb={2}
-            />
-            <DarkButton type="submit">Entrar</DarkButton>
+            <FormControl id="usuário" isRequired>
+              <DarkInput name="usuário" placeholder="Usuário" />
+            </FormControl>
+            <FormControl id="senha" isRequired>
+              <DarkInput
+                name="senha"
+                type="password"
+                placeholder="Senha"
+                mb={2}
+              />
+            </FormControl>
+            <DarkButton type="submit" isLoading={loading}>
+              Entrar
+            </DarkButton>
             <Link
               color="rgb(255,255,255,0.4)"
               _hover={{ color: 'blue.500' }}
