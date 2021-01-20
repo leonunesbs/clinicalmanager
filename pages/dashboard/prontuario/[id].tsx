@@ -5,6 +5,7 @@ import {
   Flex,
   FormControl,
   Heading,
+  Link,
   Stack,
   Tab,
   TabList,
@@ -24,6 +25,7 @@ import { FormHandles, SubmitHandler } from '@unform/core'
 
 const Manager: React.FC = () => {
   const router = useRouter()
+  const [autoSave, setAutoSave] = useState(false)
   const [unidadeId, setUnidadeId] = useState('')
   const [consultaIdAtiva, setConsultaIdAtiva] = useState(0)
   const [dadosClínicos, setDadosClínicos] = useState('')
@@ -199,16 +201,25 @@ const Manager: React.FC = () => {
                       border=""
                       backgroundColor="blue.700"
                       placeholder="Descreva os dados clínicos do paciente..."
-                      mb={4}
+                      mb={2}
                       minH="120px"
                     />
                   </FormControl>
-                  <Flex justify="flex-end" mb={4}>
-                    <DarkButton onClick={handleNovo}>Novo</DarkButton>
-                    <DarkButton ml={2} type="submit">
+                  <Stack isInline justify="flex-end" mb={2} wrap="wrap">
+                    <DarkButton
+                      isActive={autoSave}
+                      onClick={() => setAutoSave(!autoSave)}
+                      mb={2}
+                    >
+                      Autosave
+                    </DarkButton>
+                    <DarkButton mb={2} onClick={handleNovo}>
+                      Novo
+                    </DarkButton>
+                    <DarkButton mb={2} type="submit">
                       Guardar
                     </DarkButton>
-                  </Flex>
+                  </Stack>
                 </Form>
                 <Heading
                   as="h4"

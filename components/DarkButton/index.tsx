@@ -15,10 +15,9 @@ const DarkButton: React.ForwardRefRenderFunction<
       borderWidth="1px"
       color="blue.100"
       _hover={{ backgroundColor: 'blue.500' }}
-      _active={{ backgroundColor: 'blue.400' }}
-      w="120px"
+      _active={{ backgroundColor: 'blue.500' }}
+      w="100px"
       h="30px"
-      fontWeight="thin"
       fontSize="xs"
       {...rest}
     >
