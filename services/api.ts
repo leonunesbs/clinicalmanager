@@ -7,13 +7,12 @@ const api = create({
       : 'https://clinicalmanager.herokuapp.com/'
 })
 
-api.addAsyncRequestTransform(request => () => {
+api.addAsyncRequestTransform(request => async () => {
   const token = localStorage.getItem('@clinicalManager:Token')
 
   if (token) {
     request.headers.Authorization = `Token ${token}`
   }
-  return request
 })
 
 api.addResponseTransform(response => {
