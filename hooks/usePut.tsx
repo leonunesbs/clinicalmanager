@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import useSWR, { ConfigInterface } from 'swr'
-import { api } from '../services/api'
+import api from '../services/api'
 
 export function usePut<Data = any, Error = any>(
   url: string,

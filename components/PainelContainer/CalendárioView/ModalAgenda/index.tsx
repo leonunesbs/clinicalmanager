@@ -20,7 +20,7 @@ import { Form } from '@unform/web'
 import UnformInput from '../../../UnformInput'
 import { FormHandles, SubmitHandler } from '@unform/core'
 import { mutate as mutateGlobal } from 'swr'
-import { api } from '../../../../services/api'
+import api from '../../../../services/api'
 
 interface ModalAgendaProps {
   disclosure: UseDisclosureProps

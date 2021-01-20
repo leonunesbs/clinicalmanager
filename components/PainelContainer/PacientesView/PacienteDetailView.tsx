@@ -20,7 +20,7 @@ import { SubmitHandler, FormHandles } from '@unform/core'
 import { Form } from '@unform/web'
 import UnformInput from '../../UnformInput'
 import { mutate as mutateGlobal } from 'swr'
-import { api } from '../../../services/api'
+import api from '../../../services/api'
 import {
   MdCheck,
   MdDelete,

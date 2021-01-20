@@ -4,7 +4,7 @@ import { Link as ChakraLink, Text, Button, Box } from '@chakra-ui/react'
 import React, { useCallback } from 'react'
 import { mutate as mutateGlobal } from 'swr'
 import { useFetch } from '../hooks/useFetch'
-import { api } from '../services/api'
+import api from '../services/api'
 
 // import { Container } from './styles';
 

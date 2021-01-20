@@ -19,7 +19,7 @@ import 'moment/locale/pt-br'
 
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import { useFetch } from '../../../hooks/useFetch'
-import { api } from '../../../services/api'
+import api from '../../../services/api'
 import { mutate as mutateGlobal } from 'swr'
 import Head from 'next/head'
 import { FormHandles } from '@unform/core'

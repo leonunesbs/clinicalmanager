@@ -47,7 +47,6 @@ const Unidades: React.FC = () => {
             shadow="lg"
             w="100%"
             maxW="455px"
-            border="2px solid rgba(228, 242, 241, 0.45)"
             borderRadius="md"
             backgroundColor="blue.800"
             justify="center"
